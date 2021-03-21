@@ -85,7 +85,7 @@ export default Hello;
 
 <br/>
 
-&nbsp;먼저 isLoggenIn이 true일 경우 즉, 로그인이 되었을 경우 앞에 "로그인 완료" 라는 문구를 추가적으로 보여주고  
+&nbsp;먼저 `{isLoggedIn=true}`일 경우 즉, 로그인이 되었을 경우 앞에 "로그인 완료" 라는 문구를 추가적으로 보여주고  
 false의 경우엔 null이 되어 아무런 문구도 추가적으로 띄우지 않겠습니다.
 
 - 참고로 JSX문법에서는 null, false, undefined를 렌더링 하게되면 아무것도 나타나지 않습니다.
@@ -108,7 +108,7 @@ export default Hello;
 
 <br/>
 
-> 💡 여기서 {isLoggedIn ? "로그인완료" : null} 는 삼항 조건 연산자로써
+> 💡 여기서 `{isLoggedIn ? "로그인완료" : null}`는 삼항 조건 연산자로써
 >
 > if ~ else 조건문의 경우
 >
@@ -137,7 +137,7 @@ export default Hello;
 
 <br/>
 
-&nbsp; 현재는 isLoggenIn이 true이기 때문에 문구가 추가된것을 확인할 수 있습니다.
+&nbsp; 현재는 `{isLoggedIn=true}`이기 때문에 문구가 추가된것을 확인할 수 있습니다.
 
 &nbsp; 하지만 위와같이 내용이 달라지는게 아니라 보여주거나, 안보여주거나 하는 상황에서는 && 연산자를 사용하는것이 더 간편합니다.
 
@@ -177,7 +177,7 @@ const Hello = ({ name, isLoggedIn }) => {
 export default Hello;
 ```
 
-&nbsp; isLoggenIn을 false로 변경 후 값을 확인하면
+&nbsp; `{isLoggedIn=false}`로 변경 후 값을 확인하면
 
 <br/>
 
@@ -189,7 +189,7 @@ export default Hello;
 
 <br/>
 
-&nbsp; 위와같이 isLoggenIn이 false이기 때문에 앞의 문구는 추가되지않고 name대신 "guest"라는 문구가 뜨게됩니다.
+&nbsp; 위와같이 `{isLoggedIn=false}`이기 때문에 앞의 문구는 추가되지않고 name대신 "guest"라는 문구가 뜨게됩니다.
 
 <br/>
 
@@ -300,7 +300,7 @@ export default GuestGreeting;
 
 <br/>
 
-&nbsp;로그인이 되었을경우 (isLoggedIn={true})
+&nbsp;로그인이 되었을경우
 
 <br/>
 

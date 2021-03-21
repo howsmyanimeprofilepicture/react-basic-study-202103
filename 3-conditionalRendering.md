@@ -51,6 +51,10 @@ export default App;
 
 <br/>
 
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FoyGzQ%2Fbtq0zZ9fVKI%2F8WUTGr5YMT3aIKcy7b6f71%2Fimg.png"/></p>
+
+<br/>
+
 ### 📂 src>components>Hello.jsx
 
 ---
@@ -207,27 +211,6 @@ export default Hello;
 
 <p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbUJTpa%2Fbtq0AG2s8A0%2FfOlKmvecnZzaojz6Hujd41%2Fimg.png"/></p>
 
-### 📂 src>App.js
-
----
-
-<br/>
-
-&nbsp;테스트를 위하여 App.js에서 Hello 컴포넌트로 name, isLoggedIn이라는 props를 넘겨줍니다.
-
-<br/>
-
-```js
-import "./App.css";
-import Hello from "./components/Hello";
-
-function App() {
-  return <Hello name="Juno" isLoggedIn={true} />;
-}
-
-export default App;
-```
-
 <br/>
 
 ### 📂 src>components>Hello.jsx
@@ -256,6 +239,10 @@ const Hello = ({ name, isLoggedIn }) => {
 
 export default Hello;
 ```
+
+<br/>
+
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fdjulww%2Fbtq0HbGVDYh%2FakiPRB448kJ9kFi6hT5zQk%2Fimg.png"/></p>
 
 <br/>
 

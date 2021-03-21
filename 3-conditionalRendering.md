@@ -226,7 +226,7 @@ export default Hello;
 &nbsp;로그인이 되었을 경우 UserGreeting 컴포넌트를 보여주고 비로그인일 경우 GuestGreeting 컴포넌트를 보여줍니다.  
 <br/>
 
-- 추가적으로 name이라는 props를 UserGreeting에 전달합니다.
+- 추가적으로 name이라는 props를 UserGreeting 컴포넌트에 전달합니다.
 
 <br/>
 

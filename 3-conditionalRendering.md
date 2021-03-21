@@ -185,7 +185,11 @@ export default Hello;
 
 <br/>
 
-&nbsp; 위와같이 false이기 때문에 앞의 문구는 추가되지않고 name대신 "guest"라는 문구가 뜨게됩니다.
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcHPmtI%2Fbtq0AHf0wme%2F04ni8tf9oYkApoZSXwoiQ0%2Fimg.png"/></p>
+
+<br/>
+
+&nbsp; 위와같이 isLoggenIn이 false이기 때문에 앞의 문구는 추가되지않고 name대신 "guest"라는 문구가 뜨게됩니다.
 
 <br/>
 
@@ -304,11 +308,19 @@ export default GuestGreeting;
 
 <br/>
 
-&nbsp;비로그인일 경우 (isLoggedIn={false}})
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbsBS93%2Fbtq0EEbx1ub%2FQGBMwLy95tzHlivbSdkoLk%2Fimg.png"/></p>
+
+<br/>
+
+&nbsp;비로그인일 경우
 
 <br/>
 
 <p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FRtJoi%2Fbtq0HaBejoV%2F1LnQGw3apArLK5auULCfnK%2Fimg.png"/></p>
+
+<br/>
+
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FrfPll%2Fbtq0HanJO3J%2FgBUIHveP2QnH96kfsWwqL0%2Fimg.png"/></p>
 
 <br/>
 

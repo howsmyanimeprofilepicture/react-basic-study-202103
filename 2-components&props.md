@@ -212,8 +212,10 @@ export default Button;
 
 - **props.children**
   ​
+
   컴포넌트 태그 사이에 넣은 값을 조회하고 싶을 땐, props.children 을 조회하면 됩니다.
-  ​
+  ​ 
+
   BtmWrapper.js
   ​
 
@@ -280,9 +282,6 @@ const comment = {
 };
 ```
 
-​
-<br>
-​
 
 ```jsx
 // 'Comment' component에
@@ -308,7 +307,6 @@ ReactDOM.render(
 );
 ```
 
-​
 <br>
 ​
 Comment라는 component를 'Avatar'component와 'UserInfo'component로 쪼개서 표현할 수 있습니다.
@@ -333,10 +331,8 @@ function Comment(props) {
 }
 ```
 
-​
 <br>
 ​
-
 ```jsx
 function Avatar(props) {
   return (
@@ -344,10 +340,8 @@ function Avatar(props) {
   );
 }
 ```
-
 ​
 <br>
-​
 
 ```jsx
 function UserInfo(props) {
@@ -402,7 +396,8 @@ function Comment(props) {
 ​
 모든 components는 pure function처럼 component 자체 props를 수정하지 않습니다.
 ​
-purefunction
+
+pure  function
 ​
 
 ```jsx

@@ -205,12 +205,10 @@ export default Button;
 ​
 
 > 이미 만들어 놓은 app에 부분적으로 react component를 추가할수도 있습니다.
+>
 > https://rajdeep-das.medium.com/how-to-add-react-to-an-existing-website-or-web-project-11b598f989d3
 >
-> ​
-> <br>
-> <br>
-> ​
+​
 
 - **props.children**
   ​

@@ -69,8 +69,6 @@ export default App;
 > React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires Welcome to be in scope.
 >
 > `<div />` 처럼 소문자로 된 것은 html tag 이고 `<Welcome />` component를 표현하므로 범위 안에 Welcome이 있어야합니다.
->
-> ​
 
 ```jsx
 function App() {
@@ -88,11 +86,12 @@ export default App;
 ​
 ![샘플사진](https://s3.us-west-2.amazonaws.com/secure.notion-static.com/0784aa23-bf96-4531-8fe3-eac7d421648d/Untitled.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210321%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20210321T143936Z&X-Amz-Expires=86400&X-Amz-Signature=b06246decb9670e3dc62ec73555bdae7249345436d556749b95750cefc5894f4&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22Untitled.png%22)
 
-> Component naming 할 때, 소문자로 하면 화면에는 component내용이 뜨지 않고 사진과 같이 console 창에 error가 뜹니다!! **첫 글자는 꼭 대문자로!**
->
-> <br>
-> <br>
-> ​
+> Component naming 할 때, 소문자로 하면 화면에는 component내용이 뜨지 않고 사진과 같이 console 창에 error가 뜹니다!! 
+
+>**첫 글자는 꼭 대문자로!**
+
+ <br>
+ <br> ​
 
 - **우리가 정의한 component를 변수에 할당할 수 있습니다!**
   ​

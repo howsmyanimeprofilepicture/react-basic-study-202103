@@ -29,8 +29,10 @@
 
 
 
-
 <br>
+<br>
+<br>
+
 
 # 1.10. 배열에 항목 추가하기
 
@@ -44,7 +46,10 @@
 >
 > 또한 앞서 공부한 useRef()를 통해 컴퍼넌트 안에서 관리되는 id변수를 만들어보고자 합니다:)
 
-
+<br>
+<br>
+<br>
+<br>
 
 >  ### 📂/src/App.js
 
@@ -179,6 +184,10 @@ function UserList({ users }) {
 
 export default UserList;
 ```
+<br>
+<br>
+<br>
+<br>
 
 # 1.11. 배열에 항목 제거하기
 
@@ -289,6 +298,11 @@ function App() {
 
 export default App;
 ```
+
+<br>
+<br>
+<br>
+<br>
 
 
 # 1.12. 배열 항목 수정하기

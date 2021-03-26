@@ -21,6 +21,8 @@ React.Memo를 사용할 경우, 부모 컴포넌트가 리렌더링 되더라도
 import React from 'react';
 const User = React.memo(function User({ user, onRemove, onToggle }) {
     // 👀컴포넌트 전체를 React.memo() 메서드의 인자로 전달하는 식으로 활용할 수 있습니다.
+    // 👀이렇게 되면 User컴포넌트는 Props({user, onRemove, onToggle}) 값이 변경되지 않는 한
+    // 👀리렌더링이 발생하지 않습니다 !!
   return (
     <div>
       <b

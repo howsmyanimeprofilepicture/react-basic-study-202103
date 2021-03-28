@@ -6,9 +6,10 @@
 
 <br>
 <br>
+
 ## 다음의 화면에서 리랜더링이 언제 어느부분에 일어나야 할까?
 
-![https://s3-us-west-2.amazonaws.com/secure.notion-static.com/271a5319-c1c4-4e2d-b34d-3b06b53392f0/_2021-03-28__5.28.13.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/271a5319-c1c4-4e2d-b34d-3b06b53392f0/_2021-03-28__5.28.13.png)
+![react-memo.png](https://user-images.githubusercontent.com/37354708/112747369-04c6ea00-8ff0-11eb-9338-a4734344be73.png)
 
 ### 리랜더링이 일어나야하는 순간
 

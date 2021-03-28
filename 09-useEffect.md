@@ -131,7 +131,7 @@ function Example() {
 
  For example, we might want to set up a subscription to some external data source. In that case, it is important to clean up so that we don’t introduce a memory leak!
 
- cleanup이 필요한 대표적인 예시가 `구독 설정`입니다. 구독 설정을 했을 땐 어떤 정보가 바뀔 때마다 우린 그걸 알 수 있지만 구독 설정을 끄게 된다면 앞서 구독 설정을 켜놨을 때의 정보는 필요 없습니다! 그런 필요없는 정보는 지워줘야 메모리를 효율적으로 잘 쓸 수 있습니다. 
+ cleanup이 필요한 대표적인 예시가 `구독 설정`입니다. 구독 설정을 했을 땐 어떤 정보가 바뀔 때마다 알 수 있습니다. 그럼 바뀌기 이전의 정보는 더 이상 정보로서의 가치가 없어집니다. 또한 구독을 멈춘다면 그 전에 구독했던 정보도 필요 없어 집니다. 이러한 불필요한 정보는 지워줘야 메모리를 효율적으로 잘 쓸 수 있습니다. 
 
  <br>
 

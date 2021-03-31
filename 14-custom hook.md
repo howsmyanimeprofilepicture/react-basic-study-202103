@@ -123,7 +123,7 @@ Custom Hook을 사용하며 주의하셔야 될 점은,
 custom hook within custom hook with custom hook  
 ![image](https://user-images.githubusercontent.com/77006427/113161835-b593ea00-9279-11eb-9a70-1b299707a9a2.png)
 
-이미 만들어져있는 좋은 custom hook들이 많습니다. 찾아보고 없으면 만들어봅시다 ㅎㅎ
+이미 만들어져있는 좋은 custom hook들이 많습니다. 찾아보고 없으면 만들어봅시다.  
 [깃헙 링크](https://github.com/rehooks/awesome-react-hooks)
 
 
@@ -152,7 +152,7 @@ custom hook within custom hook with custom hook
 비단, 리액트에서만 다루는 개념이 아닌, 프로그래밍을 어떻게 작성 할 것인지 대한 큰 개념이기에,  
 한번 살펴보시는 것을 강력추천드립니다. 
 
-정리하신 글 공유 기다리겠습니다.
+정리하신 글 공유 기다리겠습니다.  
 ![image](https://user-images.githubusercontent.com/77006427/113154325-e290ce80-9272-11eb-8a48-bd5542462419.png)
 
 

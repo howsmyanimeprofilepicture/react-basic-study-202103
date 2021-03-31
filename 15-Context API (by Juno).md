@@ -506,7 +506,7 @@ export default Content;
 
 <br/>
 
-&nbsp; 위와 같은 형태로 불필요한 props를 전달하지 않고 Context에서 직접적으로 받아서 사용 할수 있게 되었습니다.
+&nbsp; 위와 같은 형태로 불필요한 props를 전달하지 않고 전역상태 관리를 위해서는 Context API를 활용하여 어플리케이션을 설계할수 있습니다.
 
 <br/>
 

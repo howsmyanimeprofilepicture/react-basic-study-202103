@@ -214,7 +214,7 @@ export default todoApp;
 이렇게 하나의 state object 안에서 다양한 transition이 있을 수 있습니다.   
 useReducer로 묶어서 하나로 관리하지 않고 useState를 사용하는 경우 가독성이 떨어지고 유지 보수가 어렵기 때문에 이러한 경우에는 useReducer를 사용하는 게 좋다고 합니다.   
 
-#### 3. state dependent on each other   
+#### 3. related state transitions
 
 ```javascript
 const [state, dispatch] = useReducer(dataFetchReducer, {
@@ -252,7 +252,7 @@ const dataFetchReducer = (state, action) => {
 };
 ```
 isLoading과 isError를 useState를 사용해서 state를 별도로 관리해야겠다고 생각할 수 있습니다.   
-하지만 이 값들은 서로 조건부로 의존적이기 때문에 하나의 상태 객체에서 합쳐서 관리하는 게 좋다고 합니다.
+하지만 이 값들은 서로 조건부로 의존적이기 때문에 하나의 상태 객체에서 합쳐서 관리하는 게 좋다고 합니다.   
 
 reference: https://blog.webdevsimplified.com/2020-06/use-reducer/,   
            https://www.youtube.com/watch?v=kK_Wqx3RnHk,   

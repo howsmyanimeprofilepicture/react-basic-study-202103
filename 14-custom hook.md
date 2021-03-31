@@ -1,7 +1,7 @@
 # CUSTOM HOOKs 수심 50cm 🖐
 
 ## TELEPATHY
-
+---
 **동일한 컴포넌트 로직**이, **복수의 컴포넌트**에 중복 사용 된다면,  
  
  ![image](https://user-images.githubusercontent.com/77006427/113147643-ec630380-926b-11eb-8675-a1247817c40b.png)
@@ -13,6 +13,7 @@
 준비한 코드를 살펴보며  
 확인해보겠습니다.
 
+---
 
 간단한 Form 코드입니다. 
 (*Controlled Component* 기억나시나요...?)
@@ -47,8 +48,10 @@ function Form() {
 
 ※ 위의 2번의 로직에서는 길이가 8개 이상인 경우, validation을 통과합니다.
 
-이제 위와 같이 validation을 적용해야되는 Form이 
-사이트에서 20군데나 있다고 가정해봅시다.
+---
+
+이제 위와 같이 validation 로직을 적용해야되는 Form이 
+구축하고 있는 사이트에서 20군데나 있다고 가정해봅시다.
 
 일일이 onChange에 동일한 validation 로직을 기입하겠다 다짐하였으면,  
 개발이 과연 자기의 진로인가에 대해 깊게 고려해보셔야됩니다. 
@@ -106,9 +109,17 @@ function useSmartPassword(){
 해당 예시에서는 배열을 반환하지만,   
 꼭 배열이 아니더라도 원하는 로직을 반환하여 어디서든 사용 가능합니다. 
 
-Custom Hook을 사용하며 주의하셔야 될 점은, 기존에 Hook을 사용하는 방법과 동일합니다.
+---
+
+### ⚠ 주의 ⚠
+
+Custom Hook을 사용하며 주의하셔야 될 점은,  
+기존에 Hook을 사용하는 방법과 동일합니다.  
+
 - 리액트 컴포넌트에서 사용할 것 (TOP LEVEL에서)
 - 커스텀 훅에서 사용 할 것,  
+
+
 custom hook within custom hook with custom hook  
 ![image](https://user-images.githubusercontent.com/77006427/113161835-b593ea00-9279-11eb-9a70-1b299707a9a2.png)
 
@@ -117,7 +128,7 @@ custom hook within custom hook with custom hook
 
 
 ### 여담
-
+---
 인터넷에 널리고 널려있는 예시들을 살펴보면,   
 > 중복되는 로직을 리팩토링해서, 어디서나 사용 가능하게 만들 수 있는게 바로 커스텀훅이야
 쩔지? 👩‍💻

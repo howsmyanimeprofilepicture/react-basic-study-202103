@@ -94,7 +94,7 @@ export default function BabyOfBaby() {
   const context = useContext(UserContext);
   // 😁 useContext함수를 호출하고 앞서 Import한 UserContetxt를 인자로 전달합니다.
   // 😁 이렇게하면 useContext함수는
-  // 😁 App.js의 <UserContext.Provider>컴포넌트에 value속성으로 전달했던 값을 리턴합니다.
+  // 😁 App.js의 <UserContext.Provider>컴포넌트의 value속성값을 리턴합니다.
   // 😁 저희는 {hearts, addHearts} 객체를 value값으로 넣어줬지요?
   //
   console.log("BabyOfBaby 렌더콜");

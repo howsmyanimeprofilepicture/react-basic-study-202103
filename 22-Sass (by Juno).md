@@ -1,6 +1,6 @@
 # 15-Sass
 
-## 🙏 Sass(Syntactically Awesome Style Sheets)?
+## 🙏 Sass(**Syntactically Awesome** Style Sheets)?
 
 <br/>
 
@@ -10,11 +10,15 @@
 
 > 💡 CSS pre-processor(CSS 전처리기) ?
 >
-> > CSS를 확장하는 스크립팅 언어로서, 컴파일러를 통하여 브라우저에서 사용 할 수 있는 일반 CSS 문법 형태로 변환합니다.
+> CSS를 확장하는 스크립팅 언어로서, 컴파일러를 통하여 브라우저에서 사용 할 수 있는 일반 CSS 문법 형태로 변환합니다.
+>
+> Sass, Less, PostCSS, Stylus etc...
 
 <br/>
 
 ## 1. 💾 셋팅하기
+
+---
 
 <br/>
 
@@ -44,6 +48,8 @@ yarn add node-sass
 <br/>
 
 ## 2. 👓 살펴보기
+
+---
 
 <br/>
 
@@ -82,6 +88,8 @@ comment
 <br/>
 
 ### 2-2. Variable (변수)
+
+---
 
 <br/>
 
@@ -124,6 +132,8 @@ $personal: #369fff;
 <br/>
 
 #### 2-2-1. Variable Scope (변수 범위)
+
+---
 
 <br/>
 
@@ -170,9 +180,245 @@ $personal: #369fff;
 
 <br/>
 
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb2uqd5%2Fbtq1JWJzWjF%2FBEBOzTPpNkJczUOxKgi7bk%2Fimg.png"/></p>
+#### 2-2-2. Variable Scope (!global)
+
+---
 
 <br/>
+
+&nbsp; Block Scope내에서 변수를 선언하더라도 !global 플래그를 사용하면 전역에서 사용이 가능합니다.
+
+<br/>
+
+```scss
+/* Sass */
+$personal: #369fff;
+
+.btn {
+  $personal: #000 !global;
+  padding: 5px 20px;
+  color: #fff;
+  background-color: $personal;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+}
+
+.p {
+  color: $personal;
+}
+```
+
+<br/>
+
+```css
+/* css */
+.btn {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: #000;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+}
+
+.p {
+  color: #000;
+}
+```
+
+<br/>
+
+#### 2-2-3. Variable Scope (!default)
+
+---
+
+<br/>
+
+&nbsp; 추가적인, !default 플래그를 사용하면 해당 변수가 설정되지 않았거나 값이 null때 해당 값을 사용합니다. (\* 대부분 mixin을 작성 할 때 사용)
+
+<br/>
+
+```scss
+/* Sass */
+$personal: #369fff;
+
+$personal: #000 !default;
+
+.btn {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: $personal;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+}
+
+.p {
+  color: $personal;
+}
+```
+
+<br/>
+
+```css
+/* css */
+.btn {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: #369fff;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+}
+
+.p {
+  color: #369fff;
+}
+```
+
+<br/>
+
+### 2-3. Built-in Functions (내장함수)
+
+---
+
+<br/>
+
+&nbsp; Sass에서는 여러 내장함수를 제공합니다.(darken, lighten, saturate etc...)  
+예를들어 darken은 색과 인수값을 던져주면 얼마나 어둡게할지, lighten은 얼마나 밝게할지 계산하여줍니다.
+
+<br/>
+
+```scss
+/* Sass */
+$personal: #369fff;
+
+.btn {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: $personal;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+
+  &:hover {
+    background-color: darken($personal, 10%);
+  }
+}
+```
+
+<br/>
+
+```css
+/* css */
+.btn {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: #369fff;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+}
+
+.btn:hover {
+  color: #0387ff;
+}
+```
+
+<br/>
+
+[Sass 내장함수 알아보기](https://poiemaweb.com/sass-built-in-function)
+
+<br/>
+
+### 2-4. Nesting (중첩)
+
+---
+
+<br/>
+
+&nbsp; Sass에서는 선언의 중첩이 가능합니다. 기본 CSS에서는 아래와 같이 작성합니다.
+
+<br/>
+
+```css
+/* css */
+.wrap {
+  width: 100%;
+}
+
+.wrap .wrap-title {
+  color: #000;
+}
+```
+
+<br/>
+
+&nbsp; Sass에서는 아래와 같이 작성합니다.
+
+<br/>
+
+```scss
+/* Sass */
+.wrap {
+  width: 100%;
+
+  .wrap-title {
+    color: #000;
+  }
+}
+```
+
+<br/>
+
+&nbsp; Sass에서는 아래와 같이 작성합니다.
+
+<br/>
+
+```css
+/* css */
+.btn {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: #369fff;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+}
+
+.btn:hover {
+  color: #0387ff;
+}
+```
+
+<br/>
+
+&nbsp; Sass에서는 부모선택자를 참고할때 문자를 사용하여 간편하게 표현가능합니다.
+
+<br/>
+
+```scss
+/* Sass */
+.btn {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: #369fff;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+
+  &:hover {
+    background-color: darken($personal, 10%);
+  }
+}
+```
+
+<br/>
+
+<!-- <p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb2uqd5%2Fbtq1JWJzWjF%2FBEBOzTPpNkJczUOxKgi7bk%2Fimg.png"/></p>
+
+<br/> -->
 
 <!-- <br/>
 

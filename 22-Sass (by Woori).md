@@ -43,10 +43,10 @@ SCSS는 변수를 사용할 수 있습니다. 색깔, 폰트크기 등을 재사
 </nav>
 ```
 
-```javascript
-//SCSS
+```css
+/*SCSS*/
 
-//다음과 같이 변수를 만들어줍니다.
+/*다음과 같이 변수를 만들어줍니다.*/
 $color-mint: #c9fffe;
 $color-purple: #c9d0ff;
 $color-yellow: #fcee90;
@@ -54,7 +54,8 @@ $color-gray: #808080;
 $color-white: #fff;
 $width-button: 150px;
 
-// nav tag의 background-color에 변수를 넣어줬습니다.
+/*nav tag의 background-color에 변수를 넣어줬습니다.*/
+
 nav {
   margin: 30px;
   background-color: $color-mint;
@@ -71,10 +72,10 @@ SCSS에서도 selectors 안에 다른 selectors를 포함할 수 있습니다. �
   list-style: none;
   float: left;
   
-  li { //nested selelctor
+  li { /* nested selelctor */
     margin-left: 50px;
     
-    &:first-child { //&는 여기까지의 selector path를 의미합니다.
+    &:first-child {  /* &는 여기까지의 selector path를 의미합니다.*/
       margin: 0;
     }
 
@@ -111,7 +112,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 
 버튼을 꾸미는 scss 코드를 추가했습니다. 
 
-```css
+```javascript
 
 .button {
   float: right;
@@ -153,7 +154,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 그런데 중복되는 코드가 보입니다. 바로 menu class안에 있는 a tag의 텍스트를 꾸며주는 부분과   
 버튼의 텍스트를 꾸며주는 부분입니다. 바로 이 부분입니다.   
 
-```css
+```javascript
    .menu li a:link {
      text-decoration: none;
      text-transform: uppercase;
@@ -168,7 +169,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 ```
 이 부분을 mixin을 사용해서 간결하고 효율적으로 만들어보겠습니다.    
 
-```css
+```javascript
 @mixin text-style($color) {
   text-transform: uppercase;
   text-decoration: none;
@@ -185,7 +186,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
   li { //nested selelctor
     margin-left: 50px;
     
-    &:first-child { //&는 여기까지의 selector path를 의미합니다.
+    &:first-child {
       margin: 0;
     }
 

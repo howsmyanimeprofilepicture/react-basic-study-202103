@@ -66,7 +66,7 @@ nav {
 
 SCSS에서도 selectors 안에 다른 selectors를 포함할 수 있습니다. 이 방법으로 우리는 코드를 간결하게 줄일 수 있습니다.   
 
-```javascript
+```css
 .menu {
   list-style: none;
   float: left;
@@ -89,7 +89,7 @@ SCSS에서도 selectors 안에 다른 selectors를 포함할 수 있습니다. �
 여기서는 depth가 한 단계뿐이지만 제한없이 얼마든지 깊게 nest할 수 있습니다.    
 CSS였다면 이런 식으로 작성됐을 것입니다.   
 
-```javascript
+```css
 .menu {
   list-style: none;
   float: left;
@@ -111,7 +111,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 
 버튼을 꾸미는 scss 코드를 추가했습니다. 
 
-```javascript
+```css
 
 .button {
   float: right;
@@ -153,7 +153,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 그런데 중복되는 코드가 보입니다. 바로 menu class안에 있는 a tag의 텍스트를 꾸며주는 부분과   
 버튼의 텍스트를 꾸며주는 부분입니다. 바로 이 부분입니다.   
 
-```javascript
+```css
    .menu li a:link {
      text-decoration: none;
      text-transform: uppercase;
@@ -168,7 +168,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 ```
 이 부분을 mixin을 사용해서 간결하고 효율적으로 만들어보겠습니다.    
 
-```javascript
+```css
 @mixin text-style($color) {
   text-transform: uppercase;
   text-decoration: none;
@@ -177,7 +177,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 ```
 이렇게 텍스트 스타일 mixin을 만들어주었습니다. 함수처럼 변수를 넣어 색깔도 바꿀 수 있습니다.   
 
-```javascript
+```css
 .menu {
   list-style: none;
   float: left;
@@ -200,7 +200,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 ```
 @include를 사용해 포함시켜줍니다. 버튼도 마찬가집니다.   
 
-```javascript
+```css
 .checkout-button:link,
 .cart-Button:link {
   padding: 10px;

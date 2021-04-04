@@ -231,4 +231,10 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 
 보다 더 간결하고 재사용까지 가능하게 되었습니다.   
 
+<br>
+<br>
+
+<img width="1429" alt="스크린샷 2021-04-04 오후 11 20 59" src="https://user-images.githubusercontent.com/53216594/113511759-81336d00-959c-11eb-94f0-3d92741eec6c.png">
+
+
 reference: https://www.udemy.com/course/advanced-css-and-sass

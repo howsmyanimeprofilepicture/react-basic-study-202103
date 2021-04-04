@@ -692,6 +692,14 @@ $personal: #369fff;
 
 <br/>
 
+&nbsp; 파일 구조는 아래와 같습니다.
+
+<br/>
+
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FdH7RB2%2Fbtq1KcGiDdG%2FJCUBW1SfoVbNVGpOXwxf00%2Fimg.png"/></p>
+
+<br/>
+
 ### 3-1. className 활용
 
 <br/>
@@ -754,22 +762,6 @@ $personal: #369fff;
 <br/>
 
 ```js
-// Button.jsx
-import React from "react";
-import "./Button.scss";
-
-const Button = ({ size }) => {
-  return <button className={`btn ${size}`}>Button</button>;
-};
-
-Button.defaultProps = {
-  size: "small",
-};
-
-export default Button;
-```
-
-```js
 // Page.jsx
 import React from "react";
 import Button from "../components/Button";
@@ -789,6 +781,24 @@ export default Page;
 
 <br/>
 
+```js
+// Button.jsx
+import React from "react";
+import "./Button.scss";
+
+const Button = ({ size }) => {
+  return <button className={`btn ${size}`}>Button</button>;
+};
+
+Button.defaultProps = {
+  size: "small",
+};
+
+export default Button;
+```
+
+<br/>
+
 &nbsp; 이때, `size`를 넘겨주지 않을경우 `Button.defaultProps`에 의해 `size`는 "small"이 됩니다.
 
 <br/>
@@ -797,6 +807,158 @@ export default Page;
 
 <br/>
 
+### 3-2. font-style 활용
+
+<br/>
+
+&nbsp; `mixin()`을 사용하여 디자인 가이드에 맞는 폰트 스타일을 관리하여 사용 할 수 있습니다.
+
+<br/>
+
+```scss
+// _font-style.scss
+@mixin font-style-24 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+}
+
+@mixin font-style-20 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+
+@mixin font-style-14 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+
+@mixin font($size, $color: false) {
+  @if ($size == 24) {
+    @include font-style-24;
+  }
+  @if ($size == 20) {
+    @include font-style-20;
+  }
+  @if ($size == 14) {
+    @include font-style-14;
+  }
+
+  @if (type-of($color) == color) {
+    color: $color;
+  }
+}
+```
+
+<br/>
+
+```js
+// Content.jsx
+import React from "react";
+import "./Content.scss";
+
+const Content = () => {
+  return (
+    <div>
+      <h1 className="title">이것은 font-style-24 입니다.</h1>
+      <p className="sub">이것은 font-style-20 입니다.</p>
+      <p className="content">이것은 font-style-14 입니다.</p>
+    </div>
+  );
+};
+
+export default Content;
+```
+
+<br/>
+
+```scss
+@import "../_common/font-style";
+
+.title {
+  @include font(24, red);
+}
+
+.sub {
+  @include font(20, blue);
+}
+
+.content {
+  @include font(14);
+}
+```
+
+<br/>
+
+<p align="center"><img src="https://blog.kakaocdn.net/dn/F2BmJ/btq1NtAidFJ/bTpDKT7KD3ZxY62aF57Wpk/img.png"/></p>
+
+<br/>
+
+### 3-3. reponsive 활용
+
+<br/>
+
+&nbsp; `mixin()`을 사용하여 Mobile, Tablet, Desktop등의 기기에 대응이 가능합니다.
+
+<br/>
+
+```scss
+// _media.scss
+@mixin media($screen) {
+  @if ($screen == T) {
+    @media all and (min-width: 768px) and (max-width: 1023px) {
+      @content;
+    }
+  }
+  @if ($screen == D) {
+    @media all and (min-width: 1024px) {
+      @content;
+    }
+  }
+}
+```
+
+<br/>
+
+&nbsp; 이때 해당 element의 안에서 `mixin()`의 내용을 정의하기 위해서는 `@content`를 사용해야 합니다.
+
+<br/>
+
+```scss
+@import "../_common/font-style";
+@import "../_common/media";
+
+.title {
+  @include font(24, red);
+  @include media(T) {
+    color: #fff;
+    background-color: #000;
+  }
+  @include media(D) {
+    color: #000;
+    background-color: #fff;
+  }
+}
+
+.sub {
+  @include font(20, blue);
+}
+
+.content {
+  @include font(14);
+}
+```
+
+<br/>
+
+&nbsp; 이외에도 필요에 따라 많은 용도로 활용이 될 수 있습니다.
+
+<br/>
+
 👋
+
+<br/>
 
 [더 알아보기](https://webclub.tistory.com/category/StyleSheet/SASS%E3%86%8DSCSS)

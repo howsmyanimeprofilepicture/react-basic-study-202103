@@ -132,7 +132,7 @@ CSS 모듈로 관리하나요?
 
 마지막으로 필요한 만큼만 약간의 sass와 boilerplate를 더합니다. 저는 이것을 “modular css”라고 부릅니다.
 
-출처 : 페이스북 그룹 ReactJs에 올라온 글과 이를 번역한 미디움 아티클
+참조 : [리액트에서 스타일을 어떻게 적용하는 것이 좋을까요? (페이스북 ReactJs 그룹)](https://minoo.medium.com/%EB%A6%AC%EC%95%A1%ED%8A%B8%EC%97%90%EC%84%9C-%EC%8A%A4%ED%83%80%EC%9D%BC%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C%EC%9A%94-eae661f49e18)
 
 ---
 
@@ -143,5 +143,3 @@ CSS 모듈로 관리하나요?
   [https://analogcoding.tistory.com/181](https://analogcoding.tistory.com/181)
 
   <리액트를 다루는 기술> 김민준 저.
-
-  [https://minoo.medium.com/리액트에서-스타일을-어떻게-적용하는-것이-좋을까요-eae661f49e18](https://minoo.medium.com/%EB%A6%AC%EC%95%A1%ED%8A%B8%EC%97%90%EC%84%9C-%EC%8A%A4%ED%83%80%EC%9D%BC%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EC%A0%81%EC%9A%A9%ED%95%98%EB%8A%94-%EA%B2%83%EC%9D%B4-%EC%A2%8B%EC%9D%84%EA%B9%8C%EC%9A%94-eae661f49e18)

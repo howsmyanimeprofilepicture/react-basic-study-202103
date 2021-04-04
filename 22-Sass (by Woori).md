@@ -192,9 +192,11 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 
     a:link {
       @include text-style($color-gray);
-      //text-decoration: none;
-      //text-transform: uppercase;
-      //color: $color-gray;
+      /* 
+      text-decoration: none;
+      text-transform: uppercase;
+      color: $color-gray;
+      */
     }
   }
 }

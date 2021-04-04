@@ -183,7 +183,7 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
   list-style: none;
   float: left;
   
-  li { //nested selelctor
+  li {
     margin-left: 50px;
     
     &:first-child {

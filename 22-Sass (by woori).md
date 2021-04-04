@@ -236,5 +236,6 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
 
 <img width="1429" alt="스크린샷 2021-04-04 오후 11 22 40" src="https://user-images.githubusercontent.com/53216594/113511814-bc35a080-959c-11eb-88bb-c86d2a1f5378.png">
 
+<br>
 
 reference: https://www.udemy.com/course/advanced-css-and-sass

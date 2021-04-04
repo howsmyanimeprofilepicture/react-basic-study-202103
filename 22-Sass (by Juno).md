@@ -57,7 +57,7 @@ yarn add node-sass
 
 <br/>
 
-&nbsp; .scss내부에서 주석을 할 경우 한줄 주석은 //로 표기합니다.
+&nbsp; .scss내부에서 주석을 할 경우 한줄 주석은 `//`로 표기합니다.
 
 <br/>
 
@@ -93,7 +93,7 @@ comment
 
 <br/>
 
-&nbsp; Sass에서 변수의 개념을 사용할 수 있습니다. 원하는 변수명의 앞에 $문자를 사용합니다.
+&nbsp; Sass에서 변수의 개념을 사용할 수 있습니다. 원하는 변수명의 앞에 `$`문자를 사용합니다.
 
 <br/>
 
@@ -137,7 +137,7 @@ $personal: #369fff;
 
 <br/>
 
-&nbsp; sass의 변수는 javascript와 마찬가지로 Block Scope를 사용합니다.
+&nbsp; Sass의 변수는 javascript와 마찬가지로 Block Scope를 사용합니다.
 
 <br/>
 
@@ -186,7 +186,7 @@ $personal: #369fff;
 
 <br/>
 
-&nbsp; Block Scope내에서 변수를 선언하더라도 !global 플래그를 사용하면 전역에서 사용이 가능합니다.
+&nbsp; Block Scope내에서 변수를 선언하더라도 `!global` 플래그를 사용하면 전역에서 사용이 가능합니다.
 
 <br/>
 
@@ -235,7 +235,7 @@ $personal: #369fff;
 
 <br/>
 
-&nbsp; 추가적인, !default 플래그를 사용하면 해당 변수가 설정되지 않았거나 값이 null때 해당 값을 사용합니다. (\* 대부분 mixin을 작성 할 때 사용)
+&nbsp; 추가적인, `!default` 플래그를 사용하면 해당 변수가 설정되지 않았거나 값이 null때 해당 값을 사용합니다. (\* 대부분 mixin을 작성 할 때 사용)
 
 <br/>
 
@@ -285,8 +285,8 @@ $personal: #000 !default;
 
 <br/>
 
-&nbsp; Sass에서는 여러 내장함수를 제공합니다.(darken, lighten, saturate etc...)  
-예를들어 darken은 색과 인수값을 던져주면 얼마나 어둡게할지, lighten은 얼마나 밝게할지 계산하여줍니다.
+&nbsp; Sass에서는 여러 내장함수를 제공합니다.(`darken`, `lighten`, `saturate` etc...)  
+예를들어 `darken`은 색과 인수값을 던져주면 얼마나 어둡게할지, `lighten`은 얼마나 밝게할지 계산하여줍니다.
 
 <br/>
 
@@ -372,7 +372,7 @@ $personal: #369fff;
 
 <br/>
 
-&nbsp; Sass에서는 아래와 같이 작성합니다.
+&nbsp; 또 버튼의 hover 경우를 작성하자면 CSS에서는 아래와 같습니다.
 
 <br/>
 
@@ -399,7 +399,7 @@ $personal: #369fff;
 <br/>
 
 ```scss
-/* Sass */
+//  Sass
 .btn {
   padding: 5px 20px;
   color: #fff;
@@ -416,131 +416,44 @@ $personal: #369fff;
 
 <br/>
 
-<!-- <p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb2uqd5%2Fbtq1JWJzWjF%2FBEBOzTPpNkJczUOxKgi7bk%2Fimg.png"/></p>
-
-<br/> -->
-
-<!-- <br/>
-
-&nbsp; 아래와 같은 컴포넌트 구조를 가진 사이트가 있다고 가정하여봅시다.
+&nbsp; `@at-root`를 사용하게되면 선택자 내부에 `@at-root 선택자`의 선택자를 포함한 경우 css를 적용시킵니다. `.wrap` 내부에 `@at-root .root`에 대한 css를 지정 하고
 
 <br/>
 
-<p align="center"><img src="https://i.imgur.com/tmOeRAT.png"/></p>
+```scss
+// Sass
+.wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 
-<br/>
-
-&nbsp; state의 value값을 보여주는 컴포넌트는 F와 J라고 가정하고 값을 변화시키는
-이벤트는 G 컴포넌트에서 발생한다는 가정 할 경우 value는 F컴포넌트까지 해당 value를 사용하지도 않는 A,B라는 컴포넌트의 props를 거쳐야합니다.
-
-<br/>
-
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FKq24c%2Fbtq1tCegRlf%2FkU8KWl6XOi2XgbycSL2VG0%2Fimg.png"/></p>
-
-<br/>
-
-&nbsp; handleSetValue()또한 A, B, E 컴포넌트동안 props를 전달받아야 최종 G컴포넌트에 전달이 됩니다.
-
-<br/>
-
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FnTZrJ%2Fbtq1yXVKTbG%2FColU6Mwd1JnL5jzQ2XFwQ0%2Fimg.png"/></p>
-
-<br/>
-
-&nbsp; 이러한 문제점을 해결 해주는 Hooks가 바로 Context API입니다.
-
-<br/>
-
-<p align="center"><img src="https://i.imgur.com/iyNKCIz.png"/></p>
-
-<br/>
-
-&nbsp; Context API는 사실 단순 `props drilling`을 해결하기 위한 솔루션이였으며 지금은 기존의 state management대체제로도 많이 활용 되고있습니다.
-
-<br/>
-
-[참고](https://tsh.io/state-of-frontend/#future-of-frontend)
-
-<br/>
-
-### 👀 코드로 알아보기
-
----
-
-<br/>
-
-&nbsp;전체의 파일 구조는 아래와 같습니다.
-
-<br/>
-
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FejGw65%2Fbtq1z3IaguX%2FhVLLgxlU0HYJaFVyR5vDHK%2Fimg.png"/></p>
-
-<br/>
-
-> **🔑 Key Point**
-> context API는 4가지의 용어가 나옵니다.
->
-> 1. createContext(defalutValue) - context API를 사용하기 위한 선언입니다.
-> 2. Context.Provider - 제공자 즉, 사용할 state를 제공해줍니다.
-> 3. Context.Consumer - 사용자,소비자 즉, 데이터를 사용할 주체입니다. Provider의 상태를 바라보고있습니다.
-> 4. useContext(Context) - 사용하고자 하는 Context의 value에 접근합니다.
->
-> 이러한 용어들이 나올것이며 중점으로 보시면 됩니다.
-
-<br/>
-
-### 📂 src>App.js
-
----
-
-<br/>
-
-&nbsp;테스트를 위하여 App.js의 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import React from "react";
-import NumberProvider from "./provider/NumberProvider";
-import ThemProvider from "./provider/ThemProvider";
-import Page from "./routes/Page";
-
-const App = () => {
-  return (
-    <ThemProvider>
-      <NumberProvider>
-        <Page />
-      </NumberProvider>
-    </ThemProvider>
-  );
-};
-export default App;
+  @at-root .root {
+    color: red;
+  }
+}
 ```
 
 <br/>
 
-### 📂 src>components>Page.jsx
-
----
-
-<br/>
-
-&nbsp; Page 컴포넌트 코드는 아래와 같습니다.
+&nbsp; 아래와 같이 .wrap 내부에 .root를 포함한 요소가 존재한다면
 
 <br/>
 
 ```js
+/* Page.jsx */
 import React from "react";
 import Button from "../components/Button";
-import Content from "../components/Content";
-import Header from "../components/Header";
+import "./Page.scss";
 
 const Page = () => {
   return (
-    <div>
-      <Header />
+    <div className="wrap ">
       <Button />
-      <Content />
+      <div className="container root">
+        container
+        <div className="box">box</div>
+      </div>
     </div>
   );
 };
@@ -550,376 +463,340 @@ export default Page;
 
 <br/>
 
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcRQGS3%2Fbtq1yZsKRPB%2FreKcegPjKPdJP3uudNBVu0%2Fimg.png"/></p>
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fuiz7p%2Fbtq1OMe0LLG%2FSOD98aww7liECZ5mD9RJmk%2Fimg.png"/></p>
 
 <br/>
 
-### 📂 src>routes>Page.jsx
+&nbsp; 위와 같이 적용을 받게 됩니다.
+
+<br/>
+
+### 2-5 Import
 
 ---
 
 <br/>
 
-&nbsp; Page 컴포넌트 코드는 아래와 같습니다.
+&nbsp; `import` 기능을 이용하여 나눠져있는 스타일 파일들을 불러와서 사용 할 수 있습니다. 아래와 같은 구조로 있을 경우
+
+<br/>
+
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FmpZ37%2Fbtq1K3IvwLS%2Fvfkvr53AM3yPnEK2Hxh4K0%2Fimg.png"/></p>
+
+<br/>
+
+&nbsp; \_colors.scss 파일에 작업에 사용할 color를 변수 선언을 하고
+
+<br/>
+
+```scss
+$personal: #369fff;
+```
+
+<br/>
+
+&nbsp; 작업할 파일에서 `@import "path";` 의 형식으로 선언을 하면 아래와 같이 사용이 가능합니다.
+
+<br/>
+
+```scss
+@import "../_common/colors";
+
+.btn {
+  padding: 5px 20px;
+  color: #fff;
+  background-color: $personal;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+
+  &:hover {
+    background-color: darken($personal, 10%);
+  }
+}
+```
+
+<br/>
+
+> 💡 Partial 기능  
+> 만약 .sass 파일이나 .scss 파일의 이름을 `_`로 시작 할 경우 css 파일로 따로 컴파일 되지 않습니다.
+> 해당 css 파일을 불러올 일이 없고 import 만 되는경우 이 기능을 사용하시면 됩니다.
+
+<br/>
+
+### 2-6 Extend
+
+---
+
+<br/>
+
+&nbsp; 특정 선택자를 상속 할 때 `@extend`를 사용합니다.
+
+<br/>
+
+```scss
+/* Sass */
+.box {
+  border: 1px solid gray;
+  padding: 10px;
+  display: inline-block;
+}
+
+.success-box {
+  @extend .box;
+  border: 1px solid green;
+}
+```
+
+<br/>
+
+```css
+/* css */
+.box,
+.success-box {
+  border: 1px solid gray;
+  padding: 10px;
+  display: inline-block;
+}
+
+.success-box {
+  border: 1px solid green;
+}
+```
+
+<br/>
+
+&nbsp; `%`를 사용하면 상속은 할 수 있지만 해당 선택자는 컴파일되지 않습니다.
+
+<br/>
+
+```scss
+/* Sass */
+%box {
+  padding: 0.5em;
+}
+
+.success-box {
+  @extend %box;
+  color: green;
+}
+
+.error-box {
+  @extend %box;
+  color: red;
+}
+```
+
+<br/>
+
+```css
+/* css */
+.success-box,
+.error-box {
+  padding: 0.5em;
+}
+
+.success-box {
+  color: green;
+}
+
+.error-box {
+  color: red;
+}
+```
+
+<br/>
+
+### 2-7 Function
+
+---
+
+<br/>
+
+&nbsp; 위의 Built-in Function과는 달리 사용자 지정 함수입니다. 파라미터 값을 계산하여 값을 반환하며 `@function`을 사용하여 선언합니다.
+
+<br/>
+
+```scss
+// Sass
+@function calc-percent($target, $container) {
+  @return ($target / $container) * 100%;
+}
+
+.my-module {
+  width: calc-percent(650px, 1000px);
+}
+```
+
+<br/>
+
+```css
+/* css */
+.my-module {
+  width: 65%;
+}
+```
+
+<br/>
+
+### 2-8 Mixin
+
+---
+
+<br/>
+
+&nbsp; Sass에서는 가장 유용한 기능인 Mixin입니다. `@mixin`을 사용하여 선언을하고 `@include`를 이용하여 내부에서 사용을합니다.
+
+<br/>
+
+```scss
+// Sass
+@mixin title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+@mixin title-sub {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.title {
+  @include title;
+}
+
+.title-sub {
+  @include title-sub;
+}
+```
+
+<br/>
+
+```css
+/* CSS */
+.title {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.title-sub {
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+```
+
+<br/>
+
+## ✨ 3. 활용하기
+
+---
+
+<br/>
+
+### 3-1. className 활용
+
+<br/>
+
+&nbsp; className에 전달받은 `size` 따라서 element의 크기를 변경할 수 있습니다. "small"과 "large"일 경우의 css를 작성 한 뒤
+
+<br/>
+
+```scss
+// Sass
+@import "../_common/colors";
+
+.btn {
+  color: #fff;
+  background-color: $personal;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+
+  &.small {
+    padding: 5px 20px;
+  }
+
+  &.large {
+    padding: 10px 40px;
+  }
+
+  &:hover {
+    background-color: darken($personal, 10%);
+  }
+}
+```
+
+<br/>
+
+```css
+/* css */
+.btn {
+  color: #fff;
+  background-color: $personal;
+  border-radius: 3px;
+  border: 0;
+  outline: 0;
+}
+.btn.small {
+  padding: 5px 20px;
+}
+.btn.large {
+  padding: 10px 40px;
+}
+.btn:hover {
+  background-color: #0387ff;
+}
+```
+
+<br/>
+
+&nbsp; `Button` 컴포넌트의 props에 `size`를 넘겨줍니다.
 
 <br/>
 
 ```js
+// Button.jsx
 import React from "react";
-import Button from "../components/Button";
-import Content from "../components/Content";
-import Header from "../components/Header";
+import "./Button.scss";
 
-const Page = () => {
-  return (
-    <div>
-      <Header />
-      <Button />
-      <Content />
-    </div>
-  );
+const Button = ({ size }) => {
+  return <button className={`btn ${size}`}>Button</button>;
 };
 
-export default Page;
-```
-
-<br/>
-
-&nbsp; 해당 컴포넌트는 Route의 역할만 하고있으며 어떠한 props도 받지 않고있습니다.
-
-<br/>
-
-### 📂 src>context>NumberContext.js
-
----
-
-<br/>
-
-&nbsp; 먼저 number값을 변경하는 예시를 알아 보겠습니다. NumberContext의 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import { createContext } from "react";
-
-const NumberContext = createContext({
-  number: 0,
-  increase: () => {},
-  decrease: () => {},
-});
-
-export default NumberContext;
-```
-
-<br/>
-
-&nbsp; createContext()를 사용하였고 기본 value값들을 가지고있습니다.
-
-<br/>
-
-### 📂 src>provider>NumberProvider.js
-
----
-
-<br/>
-
-&nbsp; NumberProvider의 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import React, { useState } from "react";
-import NumberContext from "../context/NumberContext";
-
-const NumberProvider = ({ children }) => {
-  const increase = () => {
-    setNumber((prevState) => {
-      return {
-        ...prevState,
-        number: prevState.number + 1,
-      };
-    });
-  };
-
-  const decrease = () => {
-    setNumber((prevState) => {
-      return {
-        ...prevState,
-        number: prevState.number - 1,
-      };
-    });
-  };
-
-  const initialState = {
-    number: 0,
-    increase,
-    decrease,
-  };
-
-  const [number, setNumber] = useState(initialState);
-
-  return (
-    <NumberContext.Provider value={number}>{children}</NumberContext.Provider>
-  );
-};
-
-export default NumberProvider;
-```
-
-<br/>
-
-&nbsp; createContext()를 사용하였기때문에 NumberContext.Provider를 사용 할 수 있게 되었고 value라는 props에 number를 담고있으며 number는 위에서 명시한 number, increase, decrease를 담고있습니다.
-
-<br/>
-
-### 📂 src>components>Header.jsx
-
----
-
-<br/>
-
-&nbsp; Header컴포넌트의 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import React, { useContext } from "react";
-import NumberContext from "../context/NumberContext";
-import ThemBtn from "./ThemBtn";
-
-const Header = () => {
-  const value = useContext(NumberContext);
-
-  return (
-    <>
-      <div>{value.number}</div>
-      <ThemBtn />
-    </>
-  );
-};
-
-export default Header;
-```
-
-<br/>
-
-&nbsp; 해당 컴포넌트에는 저희가 변경할 number의 값을 보여줄것이며 useContext(NumberContext)를 사용함으로써 value값을 접근 할 수 있게 됩니다.
-
-<br/>
-
-### 📂 src>components>Button.jsx
-
----
-
-<br/>
-
-&nbsp; Button컴포넌트의 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import React, { useContext } from "react";
-import NumberContext from "../context/NumberContext";
-
-const Button = () => {
-  const { increase, decrease } = useContext(NumberContext);
-  return (
-    <div>
-      <button onClick={increase}>+</button>
-      <button onClick={decrease}>-</button>
-    </div>
-  );
+Button.defaultProps = {
+  size: "small",
 };
 
 export default Button;
 ```
 
-<br/>
-
-&nbsp; number를 변경할 버튼 두개를 가지고 있으며 useContext(NumberContext)를 사용함으로써 value값을 접근 할 수 있게 됩니다.
-
-<br/>
-
-<p align="center"><img src="https://blog.kakaocdn.net/dn/cBHIpu/btq1zsIh4G2/kLkILYkDrMIZv3e4Mwd9k1/img.gif"/></p>
-
-<br/>
-
-&nbsp; 여기서 Context API의 장점을 눈치 채셨나요? 분명 Header이나 Button컴포넌트는 아무 props를 전달 받지 않았는데도 state에 변화를 주고있습니다.
-
-<br/>
-
-### 📂 src>context>ThemContext.js
-
----
-
-<br/>
-
-&nbsp; 이번엔 them의 state를 변경해보도록 하겠습니다. ThemContext의 코드는 아래와 같습니다.
-
-<br/>
-
 ```js
-import { createContext } from "react";
-
-const ThemContext = createContext({
-  them: "light",
-  onClick: () => {},
-});
-
-export default ThemContext;
-```
-
-<br/>
-
-&nbsp; NumberContext의 구조와 마찬가지로 createContext()를 사용하고 기본 value값을 가지고잇습니다.
-
-<br/>
-
-### 📂 src>provider>ThemProvider.js
-
----
-
-<br/>
-
-&nbsp; ThemProvider 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import React, { useState } from "react";
-import ThemContext from "../context/ThemContext";
-
-const ThemProvider = ({ children }) => {
-  const onClick = () => {
-    setThem((prevState) => {
-      return {
-        ...prevState,
-        them: prevState.them === "light" ? "dark" : "light",
-      };
-    });
-  };
-
-  const init = {
-    them: "light",
-    onClick,
-  };
-
-  const [them, setThem] = useState(init);
-  return <ThemContext.Provider value={them}>{children}</ThemContext.Provider>;
-};
-
-export default ThemProvider;
-```
-
-<br/>
-
-&nbsp; ThemContext.Provider를 사용하여 value라는 props에 them을 담고있으며 them은 위에서 명시한 them, onClick를 가지고있습니다.
-
-<br/>
-
-### 📂 src>components>ThemBtn.jsx
-
----
-
-<br/>
-
-&nbsp; them의 state를 변경할 ThemBtn컴포넌트의 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import React, { useContext } from "react";
-import ThemContext from "../context/ThemContext";
-
-const ThemBtn = () => {
-  const { onClick } = useContext(ThemContext);
-
-  return <button onClick={onClick}>them</button>;
-};
-
-export default ThemBtn;
-```
-
-<br/>
-
-&nbsp; useContext(ThemContext)를 사용함으로써 value값을 접근 하여 onClick를 사용하고있습니다.
-
-<br/>
-
-### 📂 src>components>Content.jsx
-
----
-
-<br/>
-
-&nbsp; 이번엔 them의 state에 따라 색이 바뀔 Content입니다.
-
-<br/>
-
-```js
+// Page.jsx
 import React from "react";
-import ThemContext from "../context/ThemContext";
+import Button from "../components/Button";
+import "./Page.scss";
 
-const Content = () => {
+const Page = () => {
   return (
-    <ThemContext.Consumer>
-      {(ThemContext) => {
-        const themStyle = {
-          backgroundColor: ThemContext.them === "light" ? "#fff" : "#000",
-          color: ThemContext.them === "light" ? "#000" : "#fff",
-        };
-        return (
-          <article style={themStyle}>
-            <h1>가사</h1>
-            <p>
-              나리는 꽃가루에 눈이 따끔해 (아야) 눈물이 고여도 꾹 참을래 내 마음
-              한켠 비밀스런 오르골에 넣어두고서 영원히 되감을 순간이니까 우리
-              둘의 마지막 페이지를 잘 부탁해 어느 작별이 이보다 완벽할까 Love me
-              only till this spring 오 라일락 꽃이 지는 날 goodbye 이런 결말이
-              어울려 안녕 꽃잎 같은 안녕 하이얀 우리 봄날의 climax 아 얼마나
-              기쁜 일이야 Ooh ooh Love me only till this spring 봄바람처럼 Ooh
-              // ... 중략
-            </p>
-          </article>
-        );
-      }}
-    </ThemContext.Consumer>
+    <div className="wrap ">
+      <Button />
+      <Button size="large" />
+    </div>
   );
 };
 
-export default Content;
+export default Page;
 ```
 
 <br/>
 
-&nbsp; 이전의 Header 컴포넌트와 같이 변경된 state를 받을 컴포넌트지만 다른점을 눈치 채셨나요? Header컴포넌트는 useContext()를 이용하여 value의 값에 접근하였지만 Content 컴포넌트는 다릅니다. ThemContext.Consumer를 사용하여 Provider의 value값을 구독하고있으며 변경된 state를 자체적으로 받아서 배경과 폰트의 색에 변화를 줄것입니다.
+&nbsp; 이때, `size`를 넘겨주지 않을경우 `Button.defaultProps`에 의해 `size`는 "small"이 됩니다.
 
 <br/>
 
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FeLHboy%2Fbtq1AEOXkq5%2FXcyaLeyCzBPS5M5zbabNCk%2Fimg.gif"/></p>
+<p align="center"><img src="https://blog.kakaocdn.net/dn/byEaGQ/btq1Nu0aHgu/XIkCBbbm6SJgpSeRH1aF4K/img.png"/></p>
 
 <br/>
-
-&nbsp; Content 또한 상위 컴포넌트로 부터 어떠한 props를 전달 받지 않았음에도 state를 업데이트하고 변경 값에따른 변화를 보여주고있습니다.
-
-<br/>
-
-<p align="center"><img src="https://blog.kakaocdn.net/dn/LHexh/btq1xlDamk1/pusrpjMD6ffA1hFe3utLak/img.png"/></p>
-
-<br/>
-
-&nbsp; 현재 파일의 구조를 쉽게 보자면 위와 같이 되어있습니다. 만약 Context API를 사용하지 않는다면 App.js부터 Them.jsx까지 가기위해 Page, Header 컴포넌트에 props를 전달 해야하지만 Context API를 이용하여 그러한 불필요한 작업을 하지않았습니다.
-
-<br/>
-
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fz8C3c%2Fbtq1uwrBbrI%2FrezUlpoQkpKaQ6krDkaVE1%2Fimg.png"/></p>
-
-<br/>
-
-&nbsp; 위와 같은 형태로 불필요한 props를 전달하지 않고 전역상태 관리를 위해서는 Context API를 활용하여 어플리케이션을 설계할수 있습니다.
-
-<br/> -->
-
-[참고](https://reactjs.org/docs/context.html)
 
 👋
+
+[더 알아보기](https://webclub.tistory.com/category/StyleSheet/SASS%E3%86%8DSCSS)

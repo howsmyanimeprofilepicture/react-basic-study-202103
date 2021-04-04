@@ -109,51 +109,6 @@ export default App;
 
 <br/>
 
-### 📂 src>components>Page.jsx
-
----
-
-<br/>
-
-&nbsp; Page 컴포넌트 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import React from "react";
-import Button from "../components/Button";
-import Content from "../components/Content";
-import Header from "../components/Header";
-
-const Page = () => {
-  return (
-    <div>
-      <Header />
-      <Button />
-      <Content />
-    </div>
-  );
-};
-
-export default Page;
-```
-
-<br/>
-
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcRQGS3%2Fbtq1yZsKRPB%2FreKcegPjKPdJP3uudNBVu0%2Fimg.png"/></p>
-
-<br/>
-
-### 📂 src>routes>Page.jsx
-
----
-
-<br/>
-
-&nbsp; Page 컴포넌트 코드는 아래와 같습니다.
-
-<br/>
-
 ```js
 import React from "react";
 import Button from "../components/Button";

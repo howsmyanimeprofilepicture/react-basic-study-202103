@@ -1,5 +1,7 @@
 # Sass란?
 
+<br>
+
 `Sass(Syntactically Awesome Style Sheets)`는 CSS preprocessor로서, CSS의 기능을 확장해서 사용할 수 있는 Extension 입니다.   
 preprocessor란 '전처리기'라는 의미를 가지고있으며, 말그대로 CSS가 동작하기 전에 사용하는 기능으로 CSS가 가지고 있는    
 문제점을 보완해주는 확장 기능을 가지고 있습니다.   
@@ -11,7 +13,10 @@ CSS를 작성할 때 코드가 중복되는 경험을 다들 해보셨을 겁니
 `SCSS`와 다르게 `{} curly braces` 나 `; semicolon` 은 사용하지 않습니다.   
 `SASS`가 업그레이드 된 버전이 `SCSS`라고 할 수 있습니다.
 
-`SCS`S가 범용성과 CSS와의 호환성이 더 높아 `SCSS`를 사용하는 것이 권장되기 때문에 이 뒤로 `SCSS`의 문법을 다루도록 하겠습니다. 
+`SCS`S가 범용성과 CSS와의 호환성이 더 높아 `SCSS`를 사용하는 것이 권장되기 때문에 이 뒤로 `SCSS`의 문법을 다루도록 하겠습니다.   
+
+<br>
+<br>
 
 ## Sass 실행 과정
 
@@ -22,6 +27,8 @@ CSS를 작성할 때 코드가 중복되는 경험을 다들 해보셨을 겁니
 
 #### Sass source code ---> (Sass Compiler) ---> compiled CSS code
 
+<br>
+<br>
 
 ## Sass의 다양한 기능
 
@@ -62,6 +69,9 @@ nav {
 }
 
 ```
+
+<br>
+<br>
 
 #### 2. Nesting   
 
@@ -107,6 +117,9 @@ CSS였다면 이런 식으로 작성됐을 것입니다.
   color: #808080;
 }
 ```
+
+<br>
+<br>
 
 #### 3. Mixins
 

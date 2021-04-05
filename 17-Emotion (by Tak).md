@@ -14,7 +14,7 @@ JS에서 관리를 해보자라는 **취지**로 나온 전술입니다.
 문서 level이 아닌 컴포넌트 level로 로 관리하자는 needs가  
 Css-in-JS를 탄생시키지 않았나 싶습니다.
 
-css도 몰라겠죠... 이렇게 web이 변할 줄... 😂
+css도 몰랐겠죠... 이렇게 web이 변할 줄... 😂
 
 ### 됐고, 나는 css로 styling을 관리하는게 편하다!
 
@@ -44,14 +44,16 @@ Modern Web에서 무조건 Css-in-JS를 선택해서 styling을 해야되는 것
 그래도 찍먹(도전) 해보기에는 나쁘지 않습니다.  
 
 C++을 찍먹해볼까 생각해보면 Css-in-JS를 훨씬 가뿐한 마음으로 하실 수 있습니다.
+
 ---
+
 ### Css-in-JS 대홍수
 
 ![image](https://user-images.githubusercontent.com/77006427/113510076-c99a5d00-9593-11eb-9b57-2eab46d84b6b.png)
 
 최근 1년 트랜드  
 
-[Check out every packages of Css-in-JS github](https://github.com/tuchk4/awesome-css-in-js)
+[Check out every package of Css-in-JS github](https://github.com/tuchk4/awesome-css-in-js)
 
 Ah... emotion 패키지는 1등이 아니네요. 😯
 
@@ -134,7 +136,9 @@ export default {
     bold: 700,
   },
 };
+  
 ```
+> index.jsx
 ```bash
 ReactDOM.render(
   (
@@ -145,7 +149,8 @@ ReactDOM.render(
   document.getElementById('app'),
 );
 ```
-
+  
+> ./common/button.jsx
 ```bash
 import styled from '@emotion/styled';
 
@@ -175,7 +180,7 @@ export default Button;
 위에 object로 해야되는건 순전한 제 주관적인 의견이니 편하신대로 선택해서,  
 사이트를 꾸미시면됩니다.  
 
-이상. 디자인 감각 1도 없는 사람의 글.
+이상. 디자인 감각 1도 없는 XX의 난잡한 정리.
 
 See Also:
 - [emotion](https://emotion.sh/docs/introduction)

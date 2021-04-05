@@ -189,7 +189,7 @@ checkbox {
 <br>
 <br>
 
-## CSS Module 실전예시 2- 조건부 Css 적용을 해보자
+## CSS Module 실전예시 2- 조금 더 편하게 써보기 (sass 의 bind)
 
 - sass 의 classnames 라이브러리의 bind 기능을 사용!
 - 설치방법:

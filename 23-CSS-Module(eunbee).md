@@ -54,6 +54,9 @@ export default Box;
 - 레거시 프로젝트에 리액트를 도입할 때(기존 프로젝트 css 클래스 이름과 중복 방지)
 - css 클래스 중복 방지를 위해 클래스 네이밍 규칙을 만들기 귀찮을때
 - ✅ 클래스 네이밍 규칙 예시
+  1. 컴포넌트의 이름은 다른 컴포넌트랑 중복되지 않게 한다.
+  2. 컴포넌트의 최상단 CSS 클래스는 컴포넌트의 이름과 일치시킨다. (예: `.Button`
+  3. 컴포넌트 내부에서 보여지는 CSS 클래스는 CSS Selector 를 잘 활용한다. (예: `.MyForm .my-input`)
 
 <br>
 <br>
@@ -65,11 +68,11 @@ export default Box;
 - 스타일링 추천 라이브러리: [react-icons](https://react-icons.github.io/react-icons/#/)
   Font Awesome, Ionicons, Material Design Icons, 등 아이콘들을 컴포넌트 형태로 쉽게 사용 할 수 있다.
 
-      설치방법)
+  설치방법)
 
-      ```bash
-      yarn add react-icons
-      ```
+  ```shell
+  yarn add react-icons
+  ```
 
 ## 예시 화면
 
@@ -186,7 +189,7 @@ checkbox {
 <br>
 <br>
 
-## CSS Module 실전예시 2- 조건부 Css 적용을 해보자
+## CSS Module 실전예시 2- 조금 더 편하게 써보기 (sass 의 bind)
 
 - sass 의 classnames 라이브러리의 bind 기능을 사용!
 - 설치방법:

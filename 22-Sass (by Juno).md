@@ -390,7 +390,7 @@ $personal: #369fff;
 
 <br/>
 
-&nbsp; Sass에서는 부모선택자를 참고할때 문자를 사용하여 간편하게 표현가능합니다.
+&nbsp; Sass에서는 부모선택자를 참고할때 `&`문자를 사용하여 간편하게 표현가능합니다.
 
 <br/>
 
@@ -444,7 +444,7 @@ import "./Page.scss";
 
 const Page = () => {
   return (
-    <div className="wrap ">
+    <div className="wrap">
       <Button />
       <div className="container root">
         container
@@ -683,8 +683,6 @@ $personal: #369fff;
 <br/>
 
 ## ✨ 3. 활용하기
-
----
 
 <br/>
 

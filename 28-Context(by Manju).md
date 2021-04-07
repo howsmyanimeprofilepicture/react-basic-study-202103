@@ -271,3 +271,68 @@ React는 원래부터 component로 잘게 쪼개서 하나의 큰 어플리케�
      return dispatch;
    }
    ```
+
+<br>
+
+2.  API 처리 함수 만들기
+
+    ```jsx
+    import React, { createContext, useReducer, useContext } from "react";
+    import axios from "axios";
+
+    export async function getUsers(dispatch) {
+      dispatch({ type: "GET_USERS" });
+      try {
+        const response = await axios.get(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        dispatch({ type: "GET_USERS_SUCCESS", data: response.data });
+      } catch (e) {
+        dispatch({ type: "GET_USERS_ERROR", error: e });
+      }
+    }
+
+    export async function getUser(dispatch, id) {
+      dispatch({ type: "GET_USER" });
+      try {
+        const response = await axios.get(
+          `https://jsonplaceholder.typicode.com/users/${id}`
+        );
+        dispatch({ type: "GET_USER_SUCCESS", data: response.data });
+      } catch (e) {
+        dispatch({ type: "GET_USER_ERROR", error: e });
+      }
+    }
+    ```
+
+     <br>
+
+3.  Context 사용하기!
+
+    ```jsx
+    import React from "react";
+    import Users from "./Users";
+    import { UsersProvider } from "./UsersContext";
+
+    function App() {
+      return (
+        <UsersProvider>
+          <Users />
+        </UsersProvider>
+      );
+    }
+
+    export default App;
+    ```
+
+    <br>
+
+4.  User와 Users component
+
+    ![image](https://user-images.githubusercontent.com/75834421/113897269-aaa30180-9805-11eb-874a-94d49c948ffb.png)
+
+    참고: <https://react.vlpt.us/integrate-api/05-using-with-context.html>
+
+<br>
+
+⭐ 이렇게 Context는 React의 간단한 앱 또는 API로 data를 가져와서 사용할 때 유용합니다. 여기서 state 더 많아지고, 그 state를 자주 바꿔서 대체해줘야 된다면 **Redux** 사용을 추천!

@@ -67,6 +67,35 @@ const MyComponent = () => {
 <br>
 <br>
 
+### 어떤 값이 넘어오게 될까?
+
+<br>
+
+- `[data]` : 결과 데이터값
+- `[error]` : 에러객체
+- `[value]` : 데이터나 에러
+- `[initialValue]` The data or error that was provided through the `initialValue` prop.
+- `[startedAt]` : promoise가 시작된 시간
+- `[finishedAt]` : promoise가 종료된 시간
+- `[status]` One of: `initial`, `pending`, `fulfilled`, `rejected`.
+- `[isPending]` :팬딩중이면 true, Alias: `isLoading`
+- `[isFulfilled]` :호출 성공이면 true Alias: `isResolved`
+- `[isRejected]` : 요청이 거절됬을 때 true
+
+등등... 자세한 내용은 살펴보세요
+
+- `[isSettled]` true when the last promise was fulfilled or rejected (not initial or pending).
+- `[counter]` The number of times a promise was started.
+- `[promise]` A reference to the internal wrapper promise, which can be chained on.
+- `[run]` Invokes the `deferFn`.
+- `[reload]` Re-runs the promise when invoked, using any previous arguments.
+- `[cancel]` Cancel any pending promise.
+- `[setData]` Sets `data` to the passed value, unsets `error` and cancels any pending promise.
+- `[setError]` Sets `error` to the passed value and cancels any pending promise.
+
+<br>
+<br>
+
 ## 2. 컴포넌트 로서의 사용 (As a component)
 
 ```jsx
@@ -101,7 +130,15 @@ const MyComponent = () => (
 
 ## 3. factory로서의 사용(As a factory)
 
-자체 구성 요소 인스턴스를 생성하여, 기본 onResolve 및 onReject 콜백을 구설할 수 있다.
+자체 구성 요소 인스턴스를 생성하여, 기본 onResolve 및 onReject 콜백을 구성할 수 있다.
+
+실제 코드)
+
+```jsx
+createInstance<T>(defaultOptions?: AsyncProps<T>, displayName?: string)
+```
+
+사용예시)
 
 ```jsx
 import { createInstance } from "react-async";

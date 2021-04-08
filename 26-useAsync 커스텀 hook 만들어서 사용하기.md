@@ -4,6 +4,10 @@
 
 > npm i axios
 
+
+
+
+
 ```javascript
 import axios from 'axios';
 
@@ -34,11 +38,37 @@ import axios from 'axios';
 axios({
   url: '/user/12345',
   method: 'get',
-})
+}) //💕axios()는 프로미스를 반환하는 비동기함수 .then이나 async, await 등으로 이어 갈 수 있음
   .then((response) => {
     consol.log(response.data);
-}) //응답에 대한 요청은 .data 프로퍼티에 담김.
+}) //💕요청에 대한 응답의 내용은 .data 프로퍼티에 담김.
 ```
+
+
+
+![image](https://user-images.githubusercontent.com/75282888/114001115-98bd6f00-9896-11eb-8fcc-a2cd6352f0ba.png)
+
+
+```javascript
+import axios from 'axios';
+axios({
+  method: "get",
+  url : "http://opentutorials.org:3000/main?id=HTML&page=12",
+});
+//💕위와 아래는 근본적으로 같은 모양
+axios({
+    method: 'get',
+    url:"http://opentutorials.org:3000/main",
+    params : {
+        id: 'HTML',
+        page: 12,
+    },
+});
+
+
+```
+
+
 
 상당히 잘 정리된 곳이 있어 남겨보겠음!
 

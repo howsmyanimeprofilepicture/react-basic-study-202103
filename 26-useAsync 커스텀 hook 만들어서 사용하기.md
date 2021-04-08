@@ -74,7 +74,7 @@ axios({
 
 https://xn--xy1bk56a.run/axios/guide/api.html#http-%EB%A9%94%EC%84%9C%EB%93%9C-%EB%B3%84%EC%B9%AD
 
-
+https://developer.mozilla.org/ko/docs/Web/HTTP/Methods/GET
 
 
 

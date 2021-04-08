@@ -21,7 +21,7 @@ api server에서 어떤 status를 주는냐에 따라,
 컴포넌트 안에서, 해당 response의 status를 받아와 state를 관리하기에는  
 다량의 useState hook을 선언 해줘야됩니다.
 
-> Juno님 코드 ㅎㅎ
+> Juno님 코드 ㅎㅎ  
 ![image](https://user-images.githubusercontent.com/77006427/113883643-4e39e500-97f9-11eb-9e11-d4c037dda8c4.png)  
 ![image](https://user-images.githubusercontent.com/77006427/113884107-affa4f00-97f9-11eb-870f-45fa8d46ed45.png)  
 

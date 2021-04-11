@@ -95,7 +95,7 @@ ReactDOM.render(
 
 <br/>
 
-&nbsp;Routing을 위해 `BrowserRouter` 컴포넌트를 사용하며 편의상 alias명으로 Router를 명시하여 App.js을 감싸줍니다.
+&nbsp;Routing을 위해 `BrowserRouter` 컴포넌트를 사용하며 편의상 alias로 "Router"를 명시하여 App.js을 감싸줍니다.
 
 <br/>
 

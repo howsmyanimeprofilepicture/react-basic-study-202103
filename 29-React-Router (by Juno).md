@@ -162,13 +162,19 @@ const Header = () => {
       <h1>React-Router-DOM</h1>
       <ul className="items">
         <li className="item">
-          <Link to="/">Home</Link>
+          <Link className="link" to="/" exact>
+            Home
+          </Link>
         </li>
         <li className="item">
-          <Link to="/Board1">Board1</Link>
+          <Link className="link" to="/Board1">
+            Board1
+          </Link>
         </li>
         <li className="item">
-          <Link to="/Board2">Board2</Link>
+          <Link className="link" to="/Board2">
+            Board2
+          </Link>
         </li>
       </ul>
     </nav>
@@ -180,118 +186,114 @@ export default Header;
 
 <br/>
 
-&nbsp; Routing 즉, 링크를 클릭하여 페이지를 이동하기 위해서는 anchor 태그를 사용했었습니다. 하지만 React-Router에서는 Link혹은 NavLink를 사용하며 이동할 url의 주소는 href라는 attribute 아닌 to라는 props를 사용하여 명시하여줍니다.
+&nbsp; Routing 즉, 링크를 클릭하여 페이지를 이동하기 위해서는 `anchor` 태그를 사용했었습니다. 하지만 `anchor` 태그는 클릭시 리로드가 되기때문에 React-Router에서는 `Link`혹은` NavLink`를 사용하며 이동할 url의 주소는 `href`라는 attribute 아닌 `to`라는 props를 사용하여 명시하여줍니다.
 
 <br/>
 
-### 📂 src>provider>DataProvider.js
-
----
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fblshbd%2Fbtq2qyfPM8r%2F0VkbR5ed9pIvdgNIhIk4D0%2Fimg.gif"/></p>
 
 <br/>
 
-&nbsp; DataProvider 코드는 아래와 같습니다.
-
-<br/>
-
-```js
-import React, { useState } from "react";
-import DataContext from "../context/DataContext";
-
-const DataProvider = ({ children }) => {
-  const handleState = (state) => {
-    setState((prevState) => {
-      return {
-        ...prevState,
-        state,
-      };
-    });
-  };
-
-  const init = {
-    state: "init",
-    handleState,
-  };
-
-  const [state, setState] = useState(init);
-
-  return <DataContext.Provider value={state}>{children}</DataContext.Provider>;
-};
-
-export default DataProvider;
-```
-
-<br/>
-
-&nbsp; createContext()를 사용하였기때문에 DataContext.Provider를 사용 할 수 있게 되었고 value라는 props에 state를 담고있으며 state는 위에서 명시한 state, handleState를 담고있습니다.
-
-<br/>
-
-### 📂 src>components>KoreaData>KoreaAllData>KoreaAllData.jsx
-
----
-
-<br/>
-
-&nbsp; KoreaAllData컴포넌트의 코드는 아래와 같습니다.
+&nbsp; 하지만 서비스를 제공하는 입장에서는 현재의 서비스가 어디에 위치하고있는지 알려줘야하며 이용자는 이를 알 권리가 있습니다.
 
 <br/>
 
 ```js
-import DataContext from "../../../context/DataContext";
+import React from "react";
+import "./Header.scss";
+import { NavLink } from "react-router-dom";
 
-const KoreaAllData = () => {
-  const { state, handleState } = useContext(DataContext);
-  const [isLoading, setIsLoading] = useState(true);
-
-  //... 중략
-
-  useEffect(() => {
-    //... 중략
-
-    axios
-      .get("https://projectgoc.herokuapp.com/api")
-      .then((res) => {
-        const data = res.data.elements[0].elements[1].elements[0].elements;
-        const items = data.slice(0, 133);
-        const totalData = items[18].elements;
-        const yesterDayData = items[37].elements;
-        panelDataHandler(totalData);
-        cardsDataHandler(totalData, yesterDayData);
-        chartDataHandler(items);
-        setIsLoading(false);
-        handleState("success");
-      })
-      .catch((err) => {
-        handleState("false");
-        console.log(err);
-      });
-  }, [state]);
-
+const Header = () => {
   return (
-    <DataContext.Consumer>
-      {(DataContext) => {
-        return (
-          <>
-            {DataContext.state != "false" ? (
-              <>{isLoading ? <Loading /> : <>//... 중략</>}</>
-            ) : (
-              <Err />
-            )}
-          </>
-        );
-      }}
-    </DataContext.Consumer>
+    <nav className="nav">
+      <h1>React-Router-DOM</h1>
+      <ul className="items">
+        <li className="item">
+          <NavLink className="link" to="/" exact>
+            Home
+          </NavLink>
+        </li>
+        <li className="item">
+          <NavLink className="link" to="/Board1">
+            Board1
+          </NavLink>
+        </li>
+        <li className="item">
+          <NavLink className="link" to="/Board2">
+            Board2
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };
 
-export default KoreaAllData;
+export default Header;
 ```
 
 <br/>
 
-&nbsp; 해당 컴포넌트는 Axios를 이용하여 공공데이터포털의 API를 사용하여 데이터를 로드하고 있으며, 성공을 하게되면 handleState에 success를 전달하고 실패시 false를 전달하게 됩니다. 또 이 컴포넌트는 DataContext.Consumer를 사용하여 DataContext의 상태를 구독하고 있기 때문에 그에 따른 결과를 보여주게 됩니다.
+&nbsp; 이전에는 class를 추가하는 식으로 기능을 제공하였으나 위와같이 `NavLink` 컴포넌트를 사용하면 쉽게 구현이 가능합니다.
 
 <br/>
+
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Feg10Pi%2Fbtq2iWhYm42%2F7MMQCKAeYtB717XrTv8uik%2Fimg.gif"/></p>
+
+<br/>
+
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fcl23cY%2Fbtq2qxgVrVG%2FXenTGxidHsGkkUI4OLPDQ1%2Fimg.gif"/></p>
+
+<br/>
+
+&nbsp; 위와 같이 자동적으로 `active` 라는 class가 추가적으로 생기기때문에 쉽게 사용이 가능합니다.
+
+<br/>
+
+```js
+import React from "react";
+import "./Header.scss";
+import { NavLink } from "react-router-dom";
+
+const Header = () => {
+  return (
+    <nav className="nav">
+      <h1>React-Router-DOM</h1>
+      <ul className="items">
+        <li className="item">
+          <NavLink className="link" to="/" activeClassName="toggle" exact>
+            Home
+          </NavLink>
+        </li>
+        <li className="item">
+          <NavLink className="link" to="/Board1" activeClassName="toggle">
+            Board1
+          </NavLink>
+        </li>
+        <li className="item">
+          <NavLink className="link" to="/Board2" activeClassName="toggle">
+            Board2
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
+  );
+};
+
+export default Header;
+```
+
+<br/>
+
+만약 위의 기능을 제공할 시 className을 `active` 가아닌 다른 className으로 변경하고 싶다면 위와같이 `activeClassName` 이라는 props를 사용하여 변경이 가능합니다.
+
+<br/>
+
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FyedZZ%2Fbtq2noEGWwD%2FeX9LFMsIZhiUKcHjlKZzK1%2Fimg.gif"/></p>
+
+<br/>
+
+[리액트 라우터 공식 사이트](https://reactrouter.com/)
+
+[라우터내의 컴포넌트에 props를 넘기려면?](https://mingcoder.me/2019/12/04/Programming/React/react-router-component-vs-render/)
 
 👋

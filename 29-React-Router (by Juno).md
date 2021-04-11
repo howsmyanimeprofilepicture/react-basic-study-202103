@@ -9,7 +9,7 @@
 >
 > > 홈페이지에 들어왔을때 -> www.baegofda.com/  
 > > 회원가입을 눌렀을때 -> www.baegofda.com/<strong>register</string>  
-> > 로그인 페이지로 들어갔을때 -> www.baegofda.com/<strong>login</string>
+> > 로그인 페이지로 들어갔을때 -> www.baegofda.com/<strong>login</string>  
 > > 프로필 페이지로 들어갔을때 -> www.baegofda.com/<strong>profile</string>
 >
 > 와 같이 어떤 페이지를 보여줄것인지 결정하고 도와주는것  

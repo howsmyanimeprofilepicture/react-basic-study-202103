@@ -22,12 +22,12 @@
 <br/>
 
 &nbsp;`React` 뿐만아닌 `Vue`, `Angular`, `Svelte`등은 **SPA**(Single Page Application)를 구현하기 위함입니다.  
-SSR 방식의 HTML 페이지가 바뀌는거와 달리 하나의 HTML 에서 CRA 방식으로 리로드 되지않고 동적으로 가져와서 보여줍니다.  
+SSR 방식의 HTML 페이지가 바뀌는거와 달리 하나의 HTML 에서 CSR 방식으로 리로드 되지않고 동적으로 가져와서 보여줍니다.  
 때문에 북마크, 페이지 뒤로가기 앞으로가기가 불가능합니다. 위와같은 문제를 해결하기위해 Routing 이라는 개념이 중요합니다.
 
 [(관련 참고) SSR이란? - NaverD2](https://d2.naver.com/helloworld/7804182)
 
-[(관련 참고) SPA 그리고 SSR, CRS](https://velog.io/@ru_bryunak/SPA-%EC%82%AC%EC%9A%A9%EC%97%90%EC%84%9C%EC%9D%98-SSR%EA%B3%BC-CSR)
+[(관련 참고) SPA 그리고 SSR, CSR](https://velog.io/@ru_bryunak/SPA-%EC%82%AC%EC%9A%A9%EC%97%90%EC%84%9C%EC%9D%98-SSR%EA%B3%BC-CSR)
 
 <br/>
 

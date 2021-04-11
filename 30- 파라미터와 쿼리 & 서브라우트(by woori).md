@@ -9,6 +9,10 @@
 
 <br>
 
+![example url parameter](https://user-images.githubusercontent.com/53216594/114307093-18f30700-9b19-11eb-8064-4e925a092ea2.png)
+
+reference: https://www.botify.com/learn/basics/what-are-url-parameters
+
 다음은 카우치코딩을 구글에 카우치코딩을 검색했을 때의 `URL`입니다.
 
 #### https://www.google.com/search?q=카우치코딩&rlz=1C5GCEA_enKR867KR867&oq=카우치코딩

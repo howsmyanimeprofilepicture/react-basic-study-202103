@@ -135,7 +135,7 @@ export default App;
 <br/>
 
 &nbsp;먼저 `<Route exact path={"/"} component={Home} />` 내부의 `exact`가 없다면 모든 path의 내부엔 "/"가 포함되어있기 때문에 Routing시 Home 컴포넌트가 함께 렌더링됩니다.  
- 때문에 구분을 명확해주기 위해 `exact` 사용하며 `Switch`는 Routing 시 해당하는 path가 있다면 해당 패스의 컴포넌트를 보여주고 끝나게 됩니다.
+ 때문에 구분을 명확해주기 위해 `exact` 사용하며 `Switch`는 Routing 시 해당하는 path가 있다면 해당 패스의 컴포넌트를 보여주고 끝나게 됩니다. 또 404 Page를 제공할 수 있습니다.
 
 <br/>
 

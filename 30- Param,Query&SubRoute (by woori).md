@@ -1,4 +1,4 @@
-# URL의 path 와 qurey string
+# URL의 path 와 query string
 
 <br>
 

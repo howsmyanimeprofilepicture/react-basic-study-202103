@@ -299,7 +299,7 @@ export default About;
 
 <br>
 
-## Sub Router
+# Sub Router
 
 서브 라우트는, 라우트 내부의 라우트를 만드는것을 의미합니다. 컴포넌트를 만들어서 그 안에 또 Route 컴포넌트를 렌더링하면 됩니다.
 

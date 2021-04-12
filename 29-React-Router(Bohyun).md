@@ -53,7 +53,7 @@ react-router는, 써드파티 라이브러리로서, 비록 공식은 아니지�
   export default App;
   ```
 
-  그런데 이때, About 페이지에서는 Home 화면까지 렌더링이 된다. 이는 `/about`의 경로가 `/`도 포함하기 때문인데, 이때는 아래와 같이 Home 라우터에 exacts라는 props를 넣어주면 된다.
+  그런데 이때, About 페이지에서는 Home 화면까지 렌더링이 된다. 이는 `/about`의 경로가 `/`도 포함하기 때문인데, 이때는 아래와 같이 Home 라우터에 exact라는 props를 넣어주면 된다.
 
   `<Route path="/" component={Home} exact={true} />`
 

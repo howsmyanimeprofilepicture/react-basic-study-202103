@@ -86,6 +86,8 @@
 
 ### 1. Dispatcher
 
+---
+
 <br/>
 
 &nbsp;Dispatcher는 데이터의 흐름을 관리하는 허브 역할입니다. Action이 발생되면 Dispatcher로 전달되며 Dispatcher는 전달된 Action을 보고, 등록된 콜백을 실행하여 Stroe에 데이터를 전달하게 됩니다.
@@ -93,6 +95,8 @@
 <br/>
 
 ### 2. Action
+
+---
 
 <br/>
 
@@ -102,6 +106,8 @@
 
 ### 3. Store
 
+---
+
 <br/>
 
 &nbsp;Store는 애플리케이션의 모든 상태와 관련 로직을 가지고 있습니다. Store의 state 변경이 완료가 되면 View에 상태가 변경 했다는 것을 알려주게 됩니다.
@@ -109,6 +115,8 @@
 <br/>
 
 ### 4. View
+
+---
 
 <br/>
 

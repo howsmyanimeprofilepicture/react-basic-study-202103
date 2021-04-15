@@ -21,8 +21,8 @@
 
 <br/>
 
-<p align="center"><img src="https://lh3.googleusercontent.com/proxy/PLxvCbVKPNQ5nNkd0HcZ2iw1qGUo340KR9Ts1G5REWsOubxf8sd6ApxP-IkwsXCLL3Rjk9c6d5TUIZH-cP4EZDOeNRVIeeUcQzFI607S_ezL1y-7E3Bhx3vnFYtZKOyU80WVSchPFrkbKfXL-2OV77sJvKQGpsU"/></p>
-<p align="center">*Java MVC</p>
+<p align="center"><img src="https://t1.daumcdn.net/cfile/tistory/2311AC46521AF3E80A"/></p>
+<p align="center">*Java MVC2</p>
 
 <br/>
 

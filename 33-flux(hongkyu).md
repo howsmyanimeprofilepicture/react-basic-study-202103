@@ -7,14 +7,11 @@
 ![img](<https://media.vlpt.us/images/nomadhash/post/5beef914-16a1-459c-8e84-426f0e1c6b99/%E1%84%83%E1%85%A1%E1%84%8B%E1%85%AE%E1%86%AB%E1%84%85%E1%85%A9%E1%84%83%E1%85%B3%20(4).png>)
 
 - Model, View, Controller를 합친 용어이다.
-
 - 어플리케이션의 코드를 모델, 뷰, 컨트롤러의 역할을 나눠 관리한다는 일종의 코딩 방법론이다.
-
 - 컨트롤러는 모델에 명령을 보냄으로써 모델의 상태를 변경할 수 있다.
-
 - 모델은 모델의 상태에 변화가 있을 때 컨트롤러와 뷰에 이를 통보한다. 이와 같은 통보를 통해서 뷰는 최신의 결과를 보여줄 수 있고, 컨트 롤러는 모델의 변화에 따른 적용 가능한 명령을 추가, 제거, 수정할 수 있다.
-
 - 뷰는 사용자가 볼 결과물을 생성하기 위해 모델로부터 정보를 얻어온다.
+- 
 
 ### MVC패턴의 한계와 Flux 패턴의 등장
 
@@ -30,7 +27,7 @@
 
 ![img](https://media.vlpt.us/images/nomadhash/post/6f6ad4ee-4fb7-4072-8565-c8aa28a2f0a5/05.png)
 
-Flux의 가장 큰 특징은 단방향 데이터 흐름이다.
+Flux의 가장 큰 특징은 **<u>단방향 데이터 흐름</u>**이다.
 
 디스패처에서 스토어, 스토어에서 뷰, 뷰는 다시 액션을 만들어서 디스패처부터 이와 같은순서를 반복한다.
 
@@ -41,3 +38,93 @@ Flux의 가장 큰 특징은 단방향 데이터 흐름이다.
 **뷰 :** flux에서의 뷰는 mvc의 뷰와 달리 화면을 보여주는 것 외에도 컨트롤러의 성격 또한 가지고 있따. 특히 최상위 뷰는 스토어에서 데이터를 가져와 이를 자식 view로 내려보내주는 역할을 하고 있기에 컨트롤러-뷰라고도 부른다.
 
 **액션 :** store 업데이트는 dispatch에서 데이터가 담겨져 있는 객체를 인자로 하는 콜백 함수를 통해 이뤄진다. 이 객체를 Action이라고 한다. Action은 대체로 액션 생성자로 만들어 진다.
+
+
+
+
+
+## Redux의 이해
+
+
+
+![img](https://media.vlpt.us/images/taylorkwon92/post/1411e1c2-ebb4-49ea-8fe2-a721f4e21dac/image.png)
+
+리덕스와 Flux는 약간의 차이를 가진다. 리덕스의 경우 단일 스토어이며
+
+
+
+## 리덕스의 대략적인 구조
+
+
+
+![undefined](https://cdn.filepicker.io/api/file/eHSa386Q2qz4PUCDNmPA)
+
+#### **액션** 
+
+ type이라는 프로퍼티를 갖는 객체(Object)이다. 모든 상태 변경은 액션을 디스패치함으로써 시작한다. 
+
+
+
+#### **스토어**  
+
+리덕스는 어플리케이션에 단 하나의 스토어를 만든다. 스토어 안에는 현재 앱의 상태와, 리듀서가 들어가 있고, 추가적으로 몇가지 내장함수를 갖고 있다.
+
+
+
+#### **리듀서**  
+
+현재의 상태와 전달 받은 액션을 참고하여 새로운 상태를 반환한다. 
+
+
+
+#### combineReducers
+
+여러 리듀서를 합쳐서 하나의 리듀서를 만들어 준다. 
+
+```jsx
+import { combineReducers } from "redux";
+
+import heartReducer from "./heart";
+import flowerReducer from "./flower";
+
+const rootReducer = combineReducers({
+  heartReducer,
+  flowerReducer
+});
+
+export default rootReducer;
+
+```
+
+
+
+
+
+#### 디스패치
+
+액션을 발생시키는 함수라고 이해하면 된다. 파라미터로 액션 객체가 들어가면, 해당 액션이 발생되고, 리듀서를 통해 상태가 업데이트 된다.
+
+
+
+#### **프로바이더**
+
+react-redux라이브러리에 담긴 컴포넌트이다. 프로바이더 컴포넌트로 감싸진 컴포넌트(혹은 프로바이더 컴포넌트로 nested된 컴포넌트,  혹은 프로바이더 컴포넌트의 자손 컴포넌트)에서는 action을 디스패치할 수 있고, 현재 state를 읽을 수 있다.
+
+
+
+#### **HOOK**(useDispatch, useSelector) 
+
+\<Provider>로 감싸진 (혹은 Provider의 자손이라 할 수 있는) 컴포넌트안에서 위의 HOOK을 통해 액션을 Dispatch하고, 스토어에 담긴 앱의 현재 상태를 받아올 수 있다.
+
+![img](http://redux-middleware.surge.sh/images/redux-middleware.png)
+
+#### **미들웨어**
+
+액션이 리듀서로 전달 되기 전에 거치는 곳이다.  꼭 있어도 되고 없어도 되는 부분이다. redux-thunk같은 미들웨어는 함수 형태의 action을 사용할 수도 있다.
+
+
+
+예시
+
+https://codesandbox.io/s/reduxstudy2021-04-15-2ijk1
+

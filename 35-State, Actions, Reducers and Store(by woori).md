@@ -429,6 +429,113 @@ const rootReducer = combineReducers({
 export default rootReducer
 ```
 
+## 4. store
+
+지금까지 state, actions, reducers에 관해서 알아보았는데요, store는 이들을 한데 모아주는 역할을 합니다.   
+store이 하는 역할을 정리하자면 다음과 같습니다.   
+
+* current application state 저장
+* getState()를 통해 state에 접근 가능
+* dispatch(action)를 통해 state를 업데이트
+* subscribe(listener)를 통해 리스너를 등록
+
+Redux에서는 오직 하나의 store만 있다는 것을 명심해야합니다.   
+따라서 로직을 분리할 때는 여러 개의 store를 만들어서 분리하는 게 아니라 reducers를 분리해야합니다.   
+
+<br> 
+
+본격적으로 store를 만들어보겠습니다. redux library의 createStore API 를 사용해서 만들 수 있습니다.   
+
+```javascript
+//src/store.js
+
+import { createStore } from 'redux';
+import rootReducer from './reducer';
+
+const store = createStore(rootReducer);
+
+export default store;
+```
+
+먼저 src 폴더 안에 store.js 파일을 만들고, redux library에서 createStore 을 import해옵니다.   
+
+아까 reducers 파트에서 우리는 combineRuducers 를 사용해서 여러 개의 reducers를 한데 모아 root reducer를 만들었습니다.   
+root reducer역시 import 해옵니다.   
+
+그리고 나서, createStore을 호출하는데 이때 root reducer를 인자로 넘겨줍니다.   
+
+<br> 
+
+### Loading Initial State
+
+createStore()의 두번 째 인자로 preloadedState를 넘겨줄 수 있습니다.   
+store가 생성되었을 때 initial data를 추가하기 위해 사용할 수 있습니다.   
+예로 서버로부터 전송된 application의 상태와 일치하도록 클라이언트의 상태를 만들어줄 때 유용합니다.   
+또는 사용자가 어떤 페이지를 다시 방문했을 때 localStorage에 저장되었던 값이 들어갈 수도 있습니다.   
+
+```javascript
+const store = createStore(todoApp, STATE_FROM_SERVER);
+```
+<br> 
+
+### Dispatching Actions
+
+이제 action을 dispatch해서 state를 업데이트할 수 있습니다.   
+
+```javascript
+import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from './actions';
+
+console.log(store.getState()); // get initial state
+
+const unsubscribe = store.subscribe(() => // 구독을 통해서 상태가 바뀔때마다 기록
+  console.log(store.getState());
+);
+
+store.dispatch(addTodo('Learn about actions')); // dispatch(action)를 통해 state를 업데이트
+store.dispatch(addTodo('Learn about reducers'));
+store.dispatch(addTodo('Learn about store'));
+store.dispatch(completeTodo(0));
+store.dispatch(completeTodo(1));
+store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
+
+unsubscribe(); // 구독 취소. 상태 변경을 더 이상 받아보지 않습니다.
+
+
+import store from './store'
+
+// Log the initial state
+console.log('Initial state: ', store.getState()) //Log the initial state
+// {todos: [....], filters: {status}}
+
+const unsubscribe = store.subscribe(() => // 구독을 통해서 상태가 바뀔때마다 기록
+  console.log(store.getState());
+);
+// Note that subscribe() returns a function for unregistering the listener
+
+
+// dispatch(action)를 통해 state를 업데이트
+
+store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about actions' });
+store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about reducers' });
+store.dispatch({ type: 'todos/todoAdded', payload: 'Learn about stores' });
+store.dispatch({ type: 'todos/todoToggled', payload: 0 });
+store.dispatch({ type: 'todos/todoToggled', payload: 1 });
+store.dispatch({ type: 'filters/statusFilterChanged', payload: 'Active' });
+
+unsubscribe(); // 구독 취소. 상태 변경을 더 이상 받아보지 않습니다.
+
+
+// 구독 취소 이후 dispatch(action)을 한다면?
+store.dispatch({ type: 'todos/todoAdded', payload: 'Try creating a store' })
+```
+<br>
+
+<img width="858" alt="스크린샷 2021-04-15 오후 3 47 25" src="https://user-images.githubusercontent.com/53216594/114826282-4504d580-9e02-11eb-9d06-37e2b3aaeafa.png">
+
+<br>
+이렇게 state가 업데이트 되는 것을 확인할 수 있습니다.   
+
+
 
 reference: https://redux.js.org/tutorials/fundamentals/part-3-state-actions-reducers,   
 https://redux.js.org/tutorials/fundamentals/part-4-store

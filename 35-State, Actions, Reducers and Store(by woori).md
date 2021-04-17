@@ -483,24 +483,6 @@ const store = createStore(todoApp, STATE_FROM_SERVER);
 이제 action을 dispatch해서 state를 업데이트할 수 있습니다.   
 
 ```javascript
-import { addTodo, completeTodo, setVisibilityFilter, VisibilityFilters } from './actions';
-
-console.log(store.getState()); // get initial state
-
-const unsubscribe = store.subscribe(() => // 구독을 통해서 상태가 바뀔때마다 기록
-  console.log(store.getState());
-);
-
-store.dispatch(addTodo('Learn about actions')); // dispatch(action)를 통해 state를 업데이트
-store.dispatch(addTodo('Learn about reducers'));
-store.dispatch(addTodo('Learn about store'));
-store.dispatch(completeTodo(0));
-store.dispatch(completeTodo(1));
-store.dispatch(setVisibilityFilter(VisibilityFilters.SHOW_COMPLETED));
-
-unsubscribe(); // 구독 취소. 상태 변경을 더 이상 받아보지 않습니다.
-
-
 import store from './store'
 
 // Log the initial state

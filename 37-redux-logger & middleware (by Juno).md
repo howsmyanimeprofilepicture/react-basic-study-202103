@@ -1,126 +1,187 @@
-# 33-Flux
+# 37-Redux-logger & Middleware
 
-## 🤷‍♀️ Flux 란?
-
-<br/>
-
-> Flux는 MVC 모델의 단점을 보안하기 위해 만든 페이스북에서 발표한 패턴(pattern)입니다.  
-> React, Redux의 디자인 패턴이기도 합니다. 이러한 Flux 패턴에 영감을 받아 Vue에서는 Vuex를 만들어서 사용합니다.
+## 🤷‍♀️ Middleware 란?
 
 <br/>
 
-## 🙄 MVC 패턴 ?
+> Redux에서의 Middleware는 액션이 디스패치(실행)되어 리듀서에서 처리하기전에 지정된 작업들을 의미합니다.  
+> 액션과 리듀서 사이의 중간자라고도 할 수 있으며, 액션을 콘솔에 기록하고 액션취소, 다른 종류의 액션을 추가적으로 디스패치할 수 있습니다.
+>
+> Redux의 Middleware는 Redux-Saga, Redux-thunk가 있으나 직접 만들어보며 동작에 대한 이해를 해봅시다.
 
 <br/>
 
-&nbsp; MVC(Model View Controller) 패턴은 "무엇을 할지"(Model) 내부 비지니스 로직을 처리하고, "무엇을 보여줄지"(View) 유저에게 화면을 보여주기 위함을 처리하고, "어떻게 처리할지"(Controller) 사용자의 요청을 받아서 어떻게 처리하고 보여줄지 Model과 View를 요청합니다.
+## 📚 구조 알아보기
 
 <br/>
 
-<p align="center"><img src="https://velopert.com/wp-content/uploads/2016/04/MVC.png"/></p>
+&nbsp; 먼저 Middleware는 아래와 같은 템플릿을 가집니다.
 
 <br/>
 
-<p align="center"><img src="https://t1.daumcdn.net/cfile/tistory/2311AC46521AF3E80A"/></p>
-<p align="center">*Java MVC2</p>
+```js
+const middleware = (store) => (next) => (action) => {
+  // something working...
+};
+```
 
 <br/>
 
-## 😥 MVC 한계
+&nbsp; 위의 형태가 난해하다면 Arrow function의 형태로 바꿔보겠습니다.
 
 <br/>
 
-&nbsp; MVC(Model View Controller) 패턴에는 Model과 View가 양방향 패턴에서 나오는 의존성을 가진다는 특성이 있습니다. 이는 복잡한 어플리케이션을 서비스하게 된다면 새로운 기능이 추가 될 떄마다 시스템의 복잡도를 기하급수적으로 증가 시키고, 예측 불가능한 코드를 만들게 되며, 예측 못할 버그들이 쏟아지게 됩니다.
+```js
+function middleware(store) {
+  return function (next) {
+    return function (action) {
+      // something working...
+    };
+  };
+}
+```
 
 <br/>
 
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FALrHe%2FbtqBTMSuHfN%2FZlW9i9ET34e90APgCRChk1%2Fimg.png"/></p>
+> **💡 자세히 알아보기**
+>
+> - `store`는 리덕스 스토어 인스턴스입니다. `dispatch`, `getState`, `subscribe` 내장함수가 있습니다.
+> - `next`는 액션을 다음 미들웨어에게 전달하는 함수이며, `next(action)`형태로 사용합니다. 다음 미들 웨어가 없다면 `reducer`에게 액션을 전달합니다.
+> - `action`은 현재 처리하고 있는 액션 객체 입니다.
 
 <br/>
 
-&nbsp;페이스북이 가졌던 문제점 중 한가지는 바로 알림(notification)버그 입니다. 페이스북에 로그인 했을 때 메시지 아이콘에 알림이 떠 있지만, 그 메시지 아이콘을 클릭하면 아무런 메시지가 없는등의 버그가 생긴겁니다. 또 알림은 사라지겠지만, 몇 분 뒤 알림이 다시 나타나고 다시 아무런 메시지는 나타나지 않습니다.
+&nbsp; 구조로 알아 보자면 아래와 같습니다.
 
 <br/>
 
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAeyYk%2FbtqBO7RutbO%2FjF8wxI6kwsXxKk2Qg6D5dk%2Fimg.png"/></p>
+<p align="center"><img src="https://miro.medium.com/max/2400/1*94LKNs35Z3GOZPhQ_Sd5qw.png"/></p>
 
 <br/>
 
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fekb6k6%2Fbtq2trClwna%2FZjKvGYAwkIpIravAIGwBd0%2Fimg.png"/></p>
+&nbsp; Middleware는 여러 개를 등록할 수 있습니다. 액션이 디스패치(실행)되면 미들웨어가 호출되고, Middleware에서 `next(action)`를 호출하게 되면 다음 미들웨어나 액션을 전달하며 만약 미들웨어에서 `store.dispatch`를 사용하면 다른 액션을 추가적으로 발생시킵니다.
 
 <br/>
 
-&nbsp;이러한 악순환은 페이스북 개발자들이 문제를 해결하더라도 다시 문제가 생기는 사이클이 계속 반복되었습니다.
-때문에 이를 해결하기 위한 Flux라는 흐름을 도입하게 되었습니다.
+## 👀 코드로 알아보기
 
 <br/>
 
-## 🙏 Flux !
+&nbsp; 먼저 Middleware 생성을 위해 예시 코드를 작성해보겠습니다.
 
 <br/>
 
-&nbsp; 위의 MVC패턴을 벗어나고자 고안해낸것이 다른 종류의 아키텍처 Flux입니다.
-
-<br/>
-
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FlmfPW%2FbtqBQnTPgIs%2FZ1jmHHdNcOTNiu93kQ9gMk%2Fimg.png"/></p>
-
-<br/>
-
-<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fbr7Ob3%2Fbtq2ryaSMx3%2FPKrNxFuaeHSgRxusCmCur1%2Fimg.png"/></p>
-
-<br/>
-
-&nbsp;Flux의 가장 큰 특징은 단방향 데이터 흐름입니다. 흐름은 항상 Dispatcher에서 Store로 Store에서 View로, View는 Action을 통해 다시 Dispatcher로 데이터가 흐릅니다. 이러한 단방향 데이터 흐름을 이용하면 데이터의 변화를 예측 하기 쉽게 만들게 됩니다.
-
-<br/>
-
-## 👀 자세히 알아보기
-
-<br/>
-
-### 1. Dispatcher
+### 📂 src>middlewares>myLogger.js
 
 ---
 
 <br/>
 
-&nbsp;Dispatcher는 데이터의 흐름을 관리하는 허브 역할입니다. Action이 발생되면 Dispatcher로 전달되며 Dispatcher는 전달된 Action을 보고, 등록된 콜백을 실행하여 Stroe에 데이터를 전달하게 됩니다.
+```js
+const myLogger = (store) => (next) => (action) => {
+  console.log(action); // 액션출력
+  const result = next(action); // 다음 미들웨어 (또는 리듀서) 에게 액션전달
+  console.log(store.getState());
+  return result; //반환값은 dispatch(action)의 결과물
+};
+
+export default myLogger;
+```
 
 <br/>
 
-### 2. Action
-
----
+&nbsp; 다음 Middleware 적용하기 위해 스토어에 적용합니다. 이때 `applyMiddleware` 함수를 사용합니다.
 
 <br/>
 
-&nbsp;Dispatcher에서 콜백함수가 실행되면 Store가 업데이트 되는데 이때 데이터가 담겨있는 객체를 인수로 전달합니다. 이때 전달 되는 객체를 Action이라고 합니다.
+```js
+import { applyMiddleware, createStore } from "redux";
+import myLogger from "./middlewares/myLogger";
+
+const init = {
+  number: 0,
+  diff: 1,
+};
+
+const reducer = (state = init, action) => {
+  switch (action.type) {
+    case "INCREASE":
+      return { ...state, number: state.number + state.diff };
+    case "DECREASE":
+      return { ...state, number: state.number - state.diff };
+    default:
+      return state;
+  }
+};
+
+const store = createStore(reducer, applyMiddleware(myLogger));
+
+export default store;
+```
 
 <br/>
 
-### 3. Store
-
----
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F2InOz%2Fbtq2MzUPegD%2F8WV6kMbkUciLMmK12431j1%2Fimg.gif"/></p>
 
 <br/>
 
-&nbsp;Store는 애플리케이션의 모든 상태와 관련 로직을 가지고 있습니다. Store의 state 변경이 완료가 되면 View에 상태가 변경 했다는 것을 알려주게 됩니다.
+&nbsp; 위와 같이 로깅을 하는 작업을 위해서는 직접 만드는 것 보단 reudx-logger를 사용합니다.
 
 <br/>
 
-### 4. View
-
----
+## 💾 Redux-logger 셋팅 및 사용
 
 <br/>
 
-&nbsp; Flux의 View는 화면에 나타내는 것 뿐만아니라, 자식의 View로 데이터를 흘려 보내는 View Controller 역할도 같이합니다. 애플리케이션 내부에 대해서는 아는 것이 없지만, 받은 데이터를 처리하여 사람들에게 보여주기 위한 일을 합니다.
+&nbsp; 먼저 Redux-logger를 설치합니다.
 
 <br/>
 
-[Flux 카툰 안내서](http://bestalign.github.io/2015/10/06/cartoon-guide-to-flux/)
+```bash
+yarn add redux-logger
+```
 
-[Flux와 MVC](https://beomy.tistory.com/44)
+<br/>
+
+&nbsp; 이후 store에 직접 작성했던 myLogger는 지워주고 설치한 logger를 적용합니다.
+
+<br/>
+
+```js
+import { applyMiddleware, createStore } from "redux";
+import logger from "redux-logger";
+
+const init = {
+  number: 0,
+  diff: 1,
+};
+
+const reducer = (state = init, action) => {
+  switch (action.type) {
+    case "INCREASE":
+      return { ...state, number: state.number + state.diff };
+    case "DECREASE":
+      return { ...state, number: state.number - state.diff };
+    default:
+      return state;
+  }
+};
+
+const store = createStore(reducer, applyMiddleware(logger));
+
+export default store;
+```
+
+<br/>
+
+<p align="center"><img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcOu8il%2Fbtq2RjQwn1r%2FhzBmeab3rFo0nylDp6dYJ1%2Fimg.gif"/></p>
+
+<br/>
+
+&nbsp; 위와 같이 로깅을 위한 작업이라면 redux-logger를 통하여 간단하게 사용할 수 있습니다.
+
+<br/>
+
+[Redux DevTool 적용하기](https://react.vlpt.us/redux-middleware/03-logger-and-devtools.html)
 
 👋

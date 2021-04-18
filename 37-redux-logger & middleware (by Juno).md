@@ -125,7 +125,7 @@ export default store;
 
 <br/>
 
-&nbsp; 위와 같이 로깅을 하는 작업을 위해서는 직접 만드는 것 보단 reudx-logger를 사용합니다.
+&nbsp; 위와 같이 로깅을 하는 작업을 위해서는 직접 만드는 것 보단 redux-logger를 사용합니다.
 
 <br/>
 

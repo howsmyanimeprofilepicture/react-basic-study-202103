@@ -213,7 +213,7 @@ const reducer = combineReducers({
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware]; // 배열에 넣어서 여러개의 middleware를 만들 수 있다.
 
-const store = createStore(reducer, {}, applyMiddleware(...middleware));
+const store = createStore(reducer, applyMiddleware(...middleware));
 sagaMiddleware.run(watcherSaga); // run method를 사용해서 watcherSaga가 action dispatch를 주시하도록 만듭니다.   
 
 export default store;

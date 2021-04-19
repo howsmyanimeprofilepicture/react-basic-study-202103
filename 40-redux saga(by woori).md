@@ -63,7 +63,7 @@ const reducer = combineReducers({
 const sagaMiddleware = createSagaMiddleware();
 const middleware = [sagaMiddleware]; // 배열에 넣어서 여러개의 middleware를 만들 수 있다.
 
-const store = createStore(reducer, {}, applyMiddleware(...middleware));
+const store = createStore(reducer, applyMiddleware(...middleware));
 export default store;
 ```
 createSagaMiddleware를 호출해서 sagaMiddleware라는 변수에 넣어주었습니다.   
@@ -75,11 +75,9 @@ createSagaMiddleware를 호출해서 sagaMiddleware라는 변수에 넣어주었
 <img width="686" alt="스크린샷 2021-04-18 오후 10 51 32" src="https://user-images.githubusercontent.com/53216594/115148016-ab0a8a80-a098-11eb-9e2d-e1a3f3856f2a.png">
 
 그 다음 redux에서 applyMiddleware를 불러옵니다.   
-그리고 cresteStore의 3번째 인자에 applyMiddleware의 인자로 spread middlewares를 전해주었습니다.   
+그리고 cresteStore의 인자로 applyMiddleware의 인자로 spread middlewares를 전해주었습니다.   
 
-두번째 인자에는 enhancer가 들어가는데 지금은 중요하지 않으므로 일단 생락하겠습니다.   
-
-우리는 store를 만들면서 reducer와 더불어 middleware를 추가할 수 있습니다.   
+이렇게 store를 만들면서 reducer와 더불어 middleware를 추가할 수 있습니다.   
 
 <br>
 
@@ -199,6 +197,8 @@ export function* watcherSaga() {
 
 이제 마지막으로 watcherSaga가 redux app의 background에 자리잡아 action이 dispatch되는 것을 계속 주시하도록 만들어야합니다.    
 이를 위해 store 파일에 watcherSaga를 import해오도록 하겠습니다.   
+
+(참고 takeLatest: https://github.com/redux-saga/redux-saga)
 
 ```javascript
 import { combineReducers, createStore, applyMiddleware } from 'redux';

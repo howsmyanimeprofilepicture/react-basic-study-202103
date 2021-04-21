@@ -27,7 +27,7 @@ const middleware = (store) => (next) => (action) => {
 
 <br/>
 
-&nbsp; 위의 형태가 난해하다면 Arrow function의 형태로 바꿔보겠습니다.
+&nbsp; 위의 형태가 난해하다면 function의 형태로 바꿔보겠습니다.
 
 <br/>
 

@@ -1,3 +1,5 @@
+참고 자료 : https://ko.javascript.info/closure
+
 # 클로저란?
 
 ```javascript

@@ -5,7 +5,7 @@
 프로그램은 문으로 구성 되있는 것.
 
 ## Statement (문)
-> Infomring the comupter to do some imperative thing like a if block for loop  
+> Infomring the comupter to do some imperative thing such as if, for, loop, and etc.  
 > Perfomring some actions
 
 특정 행위 혹은 명령을 내재하고 있는 코드라고 생각 하면 됩니다.
@@ -28,7 +28,7 @@ Statements은 토큰으로 구성
 
 
 ## Expression (표현식)
-> It is evalute  to a value 
+> It is a piece of code that can be evaluated to produce a value.
 
 평가를 하여 값을 도출 되는 것이 expression이다. 
 
@@ -99,7 +99,7 @@ new Function('a , b', 'return a + b'); // comma-separated with spaces
 ```
 
 (익명 함수)
-expressions: without name (annonymous)  
+expressions: without name (anonymous)  
   
 ```bash
 const doStuff = function() {}
@@ -167,7 +167,7 @@ function declarations  (함수 선언문)
 
 ※ react component 가 fucntion declaration인 이유.
 
-- 
+
 function expressions  (함수 표현식)
 - function의 특정 scope에 제한을 두고 싶을 떄,
 - global scope을 light하게 가지고 싶을떄,

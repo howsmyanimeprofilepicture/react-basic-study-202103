@@ -15,6 +15,7 @@ const makePromise = () => {
     });
 }
 makePromise()
+	.finally(() => alert('프라미스의 결과가 나왔습니다.'))
     .then((result)=> alert(result) , (error) => alert(error));
 ```
 
@@ -33,19 +34,54 @@ makePromise()
 
 
 
-# 관련 메서드 이해하기
-
-.then ((result) => { }, (error) => { })
+# 후속처리 메서드 then / catch / finally
 
 ![image](https://user-images.githubusercontent.com/75282888/115943478-26ca6400-a4eb-11eb-86aa-00474bcf481d.png)
 
-resolve에 인자로 전달된 값은 
+### then
 
-**.then((result) => {})** 의 result가 된다.
+```jsx
+promise.then(
+  function(result) { /* 결과(result)를 다룹니다 */ },
+  function(error) { /* 에러(error)를 다룹니다 생략 가능 */  } 
+);
+```
 
-reject에 인자로 전달된 값은
+then의 첫번째 인자(콜백)에는 프로미스의 결과가 fulfilled일 때의 로직이 담긴다.
 
-**.then(null, (error) => {})** // (  혹은 .catch((error) => {})  )의 error가 된다.
+콜백의 인자인 result는 fulfilled일 때의 result값이다.
+
+
+
+then의 두번째 인자에는 프로미스의 결과가 rejected일 때의 로직이 담긴다.
+
+콜백의 인자인 error는 rejected일 때의 result값이다.
+
+
+
+### catch
+
+```javascript
+promise.catch(
+  function(error) { /* 에러(error)를 다룹니다 */  } 
+);
+```
+
+then(null, (err) => {} ) 와 똑같다.
+
+프로미스가 rejected일 때의 로직이 담기고, error인자는 rejected일 때의 result값이다.
+
+
+
+### finally
+
+```javascript
+promise.finally(
+  function() { /* 결과가 성공인지 실패인지와 무관 */ },
+);
+```
+
+프로미스가 성공인지 실패인지와 무관한 로직이 담긴다. 
 
 
 
@@ -60,7 +96,6 @@ reject에 인자로 전달된 값은
 예를 들어볼까?
 
 ```jsx
-
 비동기함수1(() => {
     로직 1;
 	비동기함수2(() => {
@@ -122,7 +157,9 @@ newTimeout('로직1', 1000)
 	
 ```
 
+then 콜백의 return을 프라미스 객체로 함으로써
 
+프라미스 체이닝을 구현할 수 있다.
 
 
 
@@ -151,15 +188,9 @@ asyncTimeout();
 
 ```
 
+async는 함수의 리턴을 프라미스화한다.
 
+await은 프라미스를 리턴하는 함수에 붙일 수 있는데
 
-
-
-
-
-
-
-
-
-
+await의 결과가 나올 때까지 뒤의 로직들은 대기하게 된다.
 

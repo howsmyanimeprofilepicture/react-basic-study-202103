@@ -1,5 +1,7 @@
 # 48-LocalStorage, Session Storage, Cookies
 
+<br/>
+
 > 이용자들이 사이트를 이동할때 사용하는 HTTP는 Stateless입니다. 즉, 메모리가 없습니다.
 > 웹사이트는 유저와 항상 연결이 되어있지 않고 Request, 방문시에만 요청을 하고 순간 '연결'이 되며 HTML을 받는순간 연결이 끝나게 됩니다. 하지만 유저를 기억해야하는 일이 있습니다. 유저의 프로필, 언어, 지역정보 등등의 정보를 기억해야하기때문에 cookie나 Web Storage들이 생기게 됩니다.
 

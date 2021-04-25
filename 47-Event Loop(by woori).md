@@ -68,7 +68,7 @@ window 객체에는 엄청난 양의 정보가 담기게 되고, 웹 브라우�
 ```javascript
 setTimeout   
 fetch   
-LocalStorage   
+localStorage   
 console   
 location   
 ...

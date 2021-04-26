@@ -214,7 +214,7 @@ window.requestAnimationFrame(callback);
 
 requestAnimationFrame에 넘겨주는 callback 함수는 Animation Frames에 들어가게 됩니다.   
 
-<img width="930" alt="스크린샷 2021-04-26 오후 6 30 28" src="https://user-images.githubusercontent.com/53216594/116061211-9001d100-a6bd-11eb-9ed1-371b0d9b0b84.png">
+<img width="930" alt="스크린샷 2021-04-26 오후 6 34 05" src="https://user-images.githubusercontent.com/53216594/116061628-0dc5dc80-a6be-11eb-8fe5-0cf5d384eff5.png">
 
 ```javascript
 console.log("start");

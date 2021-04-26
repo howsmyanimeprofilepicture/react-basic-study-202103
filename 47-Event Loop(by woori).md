@@ -55,16 +55,17 @@ LocalStorage를 사용하는 것, 타이머를 사용하는 것, http://www.... 
 The window object는 브라우저에서 열린 하나의 윈도우(창)라고 볼 수 있습니다.   
 윈도우 객체는 브라우저의 요소들과 자바스크립트 엔진 등을 담고 있는 자바스크립트의 최상위 객체입니다.   
 
-윈도우 객체는 DOM(Document Object Model), BOM(Browser Object Model), Javascript 표준 내장 객체 정보를 담고 있습니다.   
+윈도우 객체는 BOM(Browser Object Model), Javascript 표준 내장 객체 정보를 담고 있습니다.   
+BOM은 objects는 navigator, history, screen, location 그리고 document 등으로 구성되어 있습니다.   
+이러한 속성들을 이용해서 브라우저의 정보에 접근할 수 있고 메소드를 사용해서 다양한 기능을 이용할 수도 있습니다.   
 
+이 중 document node가 바로 페이지의 content 정보를 가지고 있는 DOM (Document Object Model)입니다.   
 DOM 객체들로부터 제공되는 getElementById()나 querySelector()를 DOM API라고 합니다.   
+우리는 DOM API를 사용함으로써 자바스크립트로 페이지 요소들을 조작할 수 있습니다.   
 
-그리고 BOM 객체는 웹 브라우저의 정보 및 브라우저가 제공해주는 기능을 객체로 표현하고 있습니다.   
-screen, location, navigation 등의 속성을 이용해서 정보에 접근할 수 있고, 특정 메소드를 사용해서 기능을 이용할 수도 있습니다.   
+Web Api는 웹 브라우저가 제공하는 기능을 의미하므로 위에서 언급한 BOM을 Web Api라고 말하기도 합니다.   
+
 (참고: https://www.w3schools.com/js/js_timing.asp)
-
-Web Api는 웹 브라우저가 제공하는 기능을 의미하므로 위의 API들 역시 Web Api의 일부라고 보아도 무방할 것 같습니다.   
-window 객체에는 엄청난 양의 정보가 담기게 되고, 웹 브라우저가 지원하는 Web Api 정보 역시 가지고 있습니다.   
 
 ```javascript
 setTimeout   
@@ -76,7 +77,7 @@ location
 ```
 <br>
 
-우리들이 정말 많이 사용하는  console.log, setTimeout, fetch…  이들은 웹 브라우저가 기능을 지원해주는 web api 라는 것을 알게되었습니다.   
+우리들이 정말 많이 사용하는 console.log, setTimeout, fetch…  이들은 웹 브라우저가 기능을 지원해주는 web api 라는 것을 알게되었습니다.   
 우리는 이것을 window 객체(인터페이스)를 사용함으로서 해당 기능에 접근해서 사용할 수 있었던 것입니다.   
 
 ```javascript

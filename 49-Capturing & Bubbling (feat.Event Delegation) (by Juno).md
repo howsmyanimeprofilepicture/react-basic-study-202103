@@ -412,8 +412,6 @@ header.addEventListener("click", (e) => {
 
 [김버그](https://www.youtube.com/watch?v=7gKtNC3b_S8)
 
-[참고](https://ko.javascript.info/bubbling-and-capturing)
-
 <br/>
 
 고생하셨습니다 ~ ! 👋

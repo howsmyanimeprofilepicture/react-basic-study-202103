@@ -11,9 +11,7 @@ Critical Rendering Path란 브라우저가 HTML, CSS 그리고 Javascript를 스
 2. CSS Object Model을 만듭니다.
 3. DOM 과 CSSOM 을 합쳐서 Render Tree를 만듭니다.   
 4. 각 요소들이 페이지의 어디로 가야하는지 파악합니다.
-5. 스크린에 렌더림합니다.
-
-위의 과정을 하나하나 살펴보고 나서, 자바스크립트가 위의 과정에서 어떠한 영향을 끼치는지 알아보겠습니다.   
+5. 스크린에 렌더림합니다.  
 
 <br>
 

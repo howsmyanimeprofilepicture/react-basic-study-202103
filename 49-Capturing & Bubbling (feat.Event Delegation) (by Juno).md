@@ -53,7 +53,7 @@ black.addEventListener("click", (e) => {
 
 <br/>
 
-&nbsp; 중첩된 `element`들은 각각 `Event Handler`를 가지고 있습니다. 이러한 상황에서 제일 하위 `element`인 **black**의 `event`를 발생시키면 어떻게 될까요?
+&nbsp; 중첩된 `element`들은 각각 `Event Handler`를 가지고 있습니다. 이러한 상황에서 제일 하위 `element`인 black의 `event`를 발생시키면 어떻게 될까요?
 
 <br/>
 
@@ -61,7 +61,7 @@ black.addEventListener("click", (e) => {
 
 <br/>
 
-&nbsp; 직접 클릭을 한 `black`의 `event`가 먼저 발생이 되고 그다음 순차적으로 한단계씩 부모 `element`의 `event`가 발생 된것을 볼 수 있습니다. 그럼 만약 `blue`를 누르면 어떻게 될까요?
+&nbsp; 직접 클릭을 한 black의 `event`가 먼저 발생이 되고 그다음 순차적으로 한단계씩 부모 `element`의 `event`가 발생 된것을 볼 수 있습니다. 그럼 만약 blue를 누르면 어떻게 될까요?
 
 <br/>
 
@@ -69,7 +69,7 @@ black.addEventListener("click", (e) => {
 
 <br/>
 
-&nbsp; 이번에는 직접 클릭을 한 `blue`의 `event`가 먼저 발생이 되고 그다음 부모 `element`인 `red`의 `event`가 발생 된것을 볼 수 있습니다.
+&nbsp; 이번에는 직접 클릭을 한 blue의 `event`가 먼저 발생이 되고 그다음 부모 `element`인 red의 `event`가 발생 된것을 볼 수 있습니다.
 
 ## **🤷‍♀️🤷‍♂️ WHY ?**
 
@@ -83,7 +83,7 @@ black.addEventListener("click", (e) => {
 
 <br/>
 
-&nbsp; 위와 같은 도형에서 첫번째 가정이였던 `black`을 클릭해봅시다.
+&nbsp; 위와 같은 도형에서 첫번째 가정이였던 black을 클릭해봅시다.
 
 <br/>
 
@@ -91,7 +91,7 @@ black.addEventListener("click", (e) => {
 
 <br/>
 
-&nbsp; 이 때의 `black`은 모든 이벤트의 **시발점** `event.target` 즉, 실제 `event`가 실행된 `target`이 되며
+&nbsp; 이 때의 black은 모든 이벤트의 **시발점** `event.target` 즉, 실제 `event`가 실행된 `target`이 되며
 
 <br/>
 
@@ -99,7 +99,7 @@ black.addEventListener("click", (e) => {
 
 <br/>
 
-&nbsp; 그 다음 `blue`와 `red`또한 `Event Handler`를 가지고 있기때문에 **이벤트 탑승**을 하게 되며 각각의 `event`의 `event.currentTarget`이 됩니다.
+&nbsp; 그 다음 blue와 red또한 `Event Handler`를 가지고 있기때문에 **이벤트 탑승**을 하게 되며 각각의 `event`의 `event.currentTarget`이 됩니다.
 
 <br/>
 
@@ -159,9 +159,9 @@ black.addEventListener("click", (e) => {
 
 <br/>
 
-> 1. 먼저 `black`를 누르게 되면 상위의 `red` -> `blue`를 먼저 거치게 됩니다. 이 과정을 **capture phase**라고 하며 **propagate up** 이라고합니다.
-> 2. 다음 직접적으로 클릭한 `black`의 `event`가 실행이 되는 `target phase`가 일어납니다.
-> 3. 다시 `blue` -> `red`로 가는 **bubble phase**, **propagate down**이라고 합니다.
+> 1. 먼저 black를 누르게 되면 상위의 red -> blue를 먼저 거치게 됩니다. 이 과정을 **capture phase**라고 하며 **propagate up** 이라고합니다.
+> 2. 다음 직접적으로 클릭한 black의 `event`가 실행이 되는 `target phase`가 일어납니다.
+> 3. 다시 blue -> red로 가는 **bubble phase**, **propagate down**이라고 합니다.
 
 <br/>
 

@@ -71,6 +71,8 @@ black.addEventListener("click", (e) => {
 
 &nbsp; 이번에는 직접 클릭을 한 blue의 `event`가 먼저 발생이 되고 그다음 부모 `element`인 red의 `event`가 발생 된것을 볼 수 있습니다.
 
+<br/>
+
 ## **🤷‍♀️🤷‍♂️ WHY ?**
 
 <br/>

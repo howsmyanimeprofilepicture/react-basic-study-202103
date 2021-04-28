@@ -226,10 +226,6 @@ black.addEventListener("click", (e) => {
 
 <br/>
 
-&nbsp; 기본적으로는 **bubbling**에서 실행이 되나 상황에따라 **capturing**에서 실행이 되길 원한다면 함수의 두번째 인자로 `true`값을 넣어줍니다.
-
-<br/>
-
 ## **🤔 해결 방안 ?**
 
 <br/>
